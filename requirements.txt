@@ -1,0 +1,9 @@
+# requirements.txt
+
+selenium
+webdriver-manager
+requests
+google-generativeai
+Pillow
+tqdm
+beautifulsoup4
