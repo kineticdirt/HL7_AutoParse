@@ -1,0 +1,4892 @@
+{
+	"tables": {
+	  "0003": [
+		{
+		  "value": "A01",
+		  "description": "ADT/ACK - Admit/visit notification"
+		},
+		{
+		  "value": "A02",
+		  "description": "ADT/ACK - Transfer a patient"
+		},
+		{
+		  "value": "A03",
+		  "description": "ADT/ACK - Discharge/end visit"
+		},
+		{
+		  "value": "A04",
+		  "description": "ADT/ACK - Register a patient"
+		},
+		{
+		  "value": "A05",
+		  "description": "ADT/ACK - Pre-admit a patient"
+		},
+		{
+		  "value": "A06",
+		  "description": "ADT/ACK - Change an outpatient to an inpatient"
+		},
+		{
+		  "value": "A07",
+		  "description": "ADT/ACK - Change an inpatient to an outpatient"
+		},
+		{
+		  "value": "A08",
+		  "description": "ADT/ACK - Update patient information"
+		},
+		{
+		  "value": "A09",
+		  "description": "ADT/ACK - Patient departing - tracking"
+		},
+		{
+		  "value": "A10",
+		  "description": "ADT/ACK - Patient arriving - tracking"
+		},
+		{
+		  "value": "A11",
+		  "description": "ADT/ACK - Cancel admit/visit notification"
+		},
+		{
+		  "value": "A12",
+		  "description": "ADT/ACK - Cancel transfer"
+		},
+		{
+		  "value": "A13",
+		  "description": "ADT/ACK - Cancel discharge/end visit"
+		},
+		{
+		  "value": "A14",
+		  "description": "ADT/ACK - Pending admit"
+		},
+		{
+		  "value": "A15",
+		  "description": "ADT/ACK - Pending transfer"
+		},
+		{
+		  "value": "A16",
+		  "description": "ADT/ACK - Pending discharge"
+		},
+		{
+		  "value": "A17",
+		  "description": "ADT/ACK - Swap patients"
+		},
+		{
+		  "value": "A18",
+		  "description": "ADT/ACK - Merge patient information"
+		},
+		{
+		  "value": "A19",
+		  "description": "QRY/ADR - Patient query"
+		},
+		{
+		  "value": "A20",
+		  "description": "ADT/ACK - Bed status update"
+		},
+		{
+		  "value": "A21",
+		  "description": "ADT/ACK - Patient goes on a leave of absence"
+		},
+		{
+		  "value": "A22",
+		  "description": "ADT/ACK - Patient returns from a leave of absence"
+		},
+		{
+		  "value": "A23",
+		  "description": "ADT/ACK - Delete a patient record"
+		},
+		{
+		  "value": "A24",
+		  "description": "ADT/ACK - Link patient information"
+		},
+		{
+		  "value": "A25",
+		  "description": "ADT/ACK - Cancel pending discharge"
+		},
+		{
+		  "value": "A26",
+		  "description": "ADT/ACK - Cancel pending transfer"
+		},
+		{
+		  "value": "A27",
+		  "description": "ADT/ACK - Cancel pending admit"
+		},
+		{
+		  "value": "A28",
+		  "description": "ADT/ACK - Add person information"
+		},
+		{
+		  "value": "A29",
+		  "description": "ADT/ACK - Delete person information"
+		},
+		{
+		  "value": "A30",
+		  "description": "ADT/ACK - Merge person information"
+		},
+		{
+		  "value": "A31",
+		  "description": "ADT/ACK - Update person information"
+		},
+		{
+		  "value": "A32",
+		  "description": "ADT/ACK - Cancel patient arriving - tracking"
+		},
+		{
+		  "value": "A33",
+		  "description": "ADT/ACK - Cancel patient departing - tracking"
+		},
+		{
+		  "value": "A34",
+		  "description": "ADT/ACK - Merge patient information - patient ID only"
+		},
+		{
+		  "value": "A35",
+		  "description": "ADT/ACK - Merge patient information - account number only"
+		},
+		{
+		  "value": "A36",
+		  "description": "ADT/ACK - Merge patient information - patient ID and account number"
+		},
+		{
+		  "value": "A37",
+		  "description": "ADT/ACK - Unlink patient information"
+		},
+		{
+		  "value": "A38",
+		  "description": "ADT/ACK - Cancel pre-admit"
+		},
+		{
+		  "value": "A39",
+		  "description": "ADT/ACK - Merge person- patient ID"
+		},
+		{
+		  "value": "A40",
+		  "description": "ADT/ACK - Merge patient - patient identifier list"
+		},
+		{
+		  "value": "A41",
+		  "description": "ADT/ACK - Merge account - patient account number"
+		},
+		{
+		  "value": "A42",
+		  "description": "ADT/ACK - Merge visit - visit number"
+		},
+		{
+		  "value": "A43",
+		  "description": "ADT/ACK - Move patient information - patient identifier list"
+		},
+		{
+		  "value": "A44",
+		  "description": "ADT/ACK - Move account information - patient account number"
+		},
+		{
+		  "value": "A45",
+		  "description": "ADT/ACK - Move visit information - visit number"
+		},
+		{
+		  "value": "A46",
+		  "description": "ADT/ACK - Change patient ID"
+		},
+		{
+		  "value": "A47",
+		  "description": "ADT/ACK - Change patient identifier list"
+		},
+		{
+		  "value": "A48",
+		  "description": "ADT/ACK - Change alternate patient ID"
+		},
+		{
+		  "value": "A49",
+		  "description": "ADT/ACK - Change patient account number"
+		},
+		{
+		  "value": "A50",
+		  "description": "ADT/ACK - Change visit number"
+		},
+		{
+		  "value": "A51",
+		  "description": "ADT/ACK - Change alternate visit ID"
+		},
+		{
+		  "value": "C01",
+		  "description": "CRM - Register a patient on a clinical trial"
+		},
+		{
+		  "value": "C02",
+		  "description": "CRM - Cancel a patient registration on clinical trial (for clerical mistakes only)"
+		},
+		{
+		  "value": "C03",
+		  "description": "CRM - Correct/update registration information"
+		},
+		{
+		  "value": "C04",
+		  "description": "CRM - Patient has gone off a clinical trial"
+		},
+		{
+		  "value": "C05",
+		  "description": "CRM - Patient enters phase of clinical trial"
+		},
+		{
+		  "value": "C06",
+		  "description": "CRM - Cancel patient entering a phase (clerical mistake)"
+		},
+		{
+		  "value": "C07",
+		  "description": "CRM - Correct/update phase information"
+		},
+		{
+		  "value": "C08",
+		  "description": "CRM - Patient has gone off phase of clinical trial"
+		},
+		{
+		  "value": "C09",
+		  "description": "CSU - Automated time intervals for reporting; like monthly"
+		},
+		{
+		  "value": "C10",
+		  "description": "CSU - Patient completes the clinical trial"
+		},
+		{
+		  "value": "C11",
+		  "description": "CSU - Patient completes a phase of the clinical trial"
+		},
+		{
+		  "value": "C12",
+		  "description": "CSU - Update/correction of patient order/result information"
+		},
+		{
+		  "value": "CNQ",
+		  "description": "QRY/EQQ/SPQ/VQQ/RQQ - Cancel query"
+		},
+		{
+		  "value": "I01",
+		  "description": "RQI/RPI - Request for insurance information"
+		},
+		{
+		  "value": "I02",
+		  "description": "RQI/RPL - Request/receipt of patient selection display list"
+		},
+		{
+		  "value": "I03",
+		  "description": "RQI/RPR - Request/receipt of patient selection list"
+		},
+		{
+		  "value": "I04",
+		  "description": "RQD/RPI - Request for patient demographic data"
+		},
+		{
+		  "value": "I05",
+		  "description": "RQC/RCI - Request for patient clinical information"
+		},
+		{
+		  "value": "I06",
+		  "description": "RQC/RCL - Request/receipt of clinical data listing"
+		},
+		{
+		  "value": "I07",
+		  "description": "PIN/ACK - Unsolicited insurance information"
+		},
+		{
+		  "value": "I08",
+		  "description": "RQA/RPA - Request for treatment authorization information"
+		},
+		{
+		  "value": "I09",
+		  "description": "RQA/RPA - Request for modification to an authorization"
+		},
+		{
+		  "value": "I10",
+		  "description": "RQA/RPA - Request for resubmission of an authorization"
+		},
+		{
+		  "value": "I11",
+		  "description": "RQA/RPA - Request for cancellation of an authorization"
+		},
+		{
+		  "value": "I12",
+		  "description": "REF/RRI - Patient referral"
+		},
+		{
+		  "value": "I13",
+		  "description": "REF/RRI - Modify patient referral"
+		},
+		{
+		  "value": "I14",
+		  "description": "REF/RRI - Cancel patient referral"
+		},
+		{
+		  "value": "I15",
+		  "description": "REF/RRI - Request patient referral status"
+		},
+		{
+		  "value": "M01",
+		  "description": "MFN/MFK - Master file not otherwise specified (for backward compatibility only)"
+		},
+		{
+		  "value": "M02",
+		  "description": "MFN/MFK - Master file - staff practitioner"
+		},
+		{
+		  "value": "M03",
+		  "description": "MFN/MFK - Master file - test/observation (for backward compatibility only)"
+		},
+		{
+		  "value": "M04",
+		  "description": "MFN/MFK - Master files charge description"
+		},
+		{
+		  "value": "M05",
+		  "description": "MFN/MFK - Patient location master file"
+		},
+		{
+		  "value": "M06",
+		  "description": "MFN/MFK - Clinical study with phases and schedules master file"
+		},
+		{
+		  "value": "M07",
+		  "description": "MFN/MFK - Clinical study without phases but with schedules master file"
+		},
+		{
+		  "value": "M08",
+		  "description": "MFN/MFK - Test/observation (numeric) master file"
+		},
+		{
+		  "value": "M09",
+		  "description": "MFN/MFK - Test/observation (categorical) master file"
+		},
+		{
+		  "value": "M10",
+		  "description": "MFN/MFK - Test /observation batteries master file"
+		},
+		{
+		  "value": "M11",
+		  "description": "MFN/MFK - Test/calculated observations master file"
+		},
+		{
+		  "value": "O01",
+		  "description": "ORM - Order message (also RDE; RDS; RGV; RAS)"
+		},
+		{
+		  "value": "O02",
+		  "description": "ORR - Order response (also RRE; RRD; RRG; RRA)"
+		},
+		{
+		  "value": "P01",
+		  "description": "BAR/ACK - Add patient accounts"
+		},
+		{
+		  "value": "P02",
+		  "description": "BAR/ACK - Purge patient accounts"
+		},
+		{
+		  "value": "P03",
+		  "description": "DFT/ACK - Post detail financial transaction"
+		},
+		{
+		  "value": "P04",
+		  "description": "QRY/DSP - Generate bill and A/R statements"
+		},
+		{
+		  "value": "P05",
+		  "description": "BAR/ACK - Update account"
+		},
+		{
+		  "value": "P06",
+		  "description": "BAR/ACK - End account"
+		},
+		{
+		  "value": "P07",
+		  "description": "PEX - Unsolicited initial individual product experience report"
+		},
+		{
+		  "value": "P08",
+		  "description": "PEX - Unsolicited update individual product experience report"
+		},
+		{
+		  "value": "P09",
+		  "description": "SUR - Summary product experience report"
+		},
+		{
+		  "value": "PC1",
+		  "description": "PPR - PC/ problem add"
+		},
+		{
+		  "value": "PC2",
+		  "description": "PPR - PC/ problem update"
+		},
+		{
+		  "value": "PC3",
+		  "description": "PPR - PC/ problem delete"
+		},
+		{
+		  "value": "PC4",
+		  "description": "QRY - PC/ problem query"
+		},
+		{
+		  "value": "PC5",
+		  "description": "PRR - PC/ problem response"
+		},
+		{
+		  "value": "PC6",
+		  "description": "PGL - PC/ goal add"
+		},
+		{
+		  "value": "PC7",
+		  "description": "PGL - PC/ goal update"
+		},
+		{
+		  "value": "PC8",
+		  "description": "PGL - PC/ goal delete"
+		},
+		{
+		  "value": "PC9",
+		  "description": "QRY - PC/ goal query"
+		},
+		{
+		  "value": "PCA",
+		  "description": "PPV - PC/ goal response"
+		},
+		{
+		  "value": "PCB",
+		  "description": "PPP - PC/ pathway (problem-oriented) add"
+		},
+		{
+		  "value": "PCC",
+		  "description": "PPP - PC/ pathway (problem-oriented) update"
+		},
+		{
+		  "value": "PCD",
+		  "description": "PPP - PC/ pathway (problem-oriented) delete"
+		},
+		{
+		  "value": "PCE",
+		  "description": "QRY - PC/ pathway (problem-oriented) query"
+		},
+		{
+		  "value": "PCF",
+		  "description": "PTR - PC/ pathway (problem-oriented) query response"
+		},
+		{
+		  "value": "PCG",
+		  "description": "PPG - PC/ pathway (goal-oriented) add"
+		},
+		{
+		  "value": "PCH",
+		  "description": "PPG - PC/ pathway (goal-oriented) update"
+		},
+		{
+		  "value": "PCJ",
+		  "description": "PPG - PC/ pathway (goal-oriented) delete"
+		},
+		{
+		  "value": "PCK",
+		  "description": "QRY - PC/ pathway (goal-oriented) query"
+		},
+		{
+		  "value": "PCL",
+		  "description": "PPT - PC/ pathway (goal-oriented) query response"
+		},
+		{
+		  "value": "Q01",
+		  "description": "QRY/DSR - Query sent for immediate response"
+		},
+		{
+		  "value": "Q02",
+		  "description": "QRY/QCK - Query sent for deferred response"
+		},
+		{
+		  "value": "Q03",
+		  "description": "DSR/ACK - Deferred response to a query"
+		},
+		{
+		  "value": "Q04",
+		  "description": "EQQ - Embedded query language query"
+		},
+		{
+		  "value": "Q05",
+		  "description": "UDM/ACK - Unsolicited display update message"
+		},
+		{
+		  "value": "Q06",
+		  "description": "OSQ/OSR - Query for order status"
+		},
+		{
+		  "value": "Q07",
+		  "description": "VQQ - Virtual table query"
+		},
+		{
+		  "value": "Q08",
+		  "description": "SPQ - Stored procedure request"
+		},
+		{
+		  "value": "Q09",
+		  "description": "RQQ - event replay query"
+		},
+		{
+		  "value": "R01",
+		  "description": "ORU/ACK - Unsolicited transmission of an observation message"
+		},
+		{
+		  "value": "R02",
+		  "description": "QRY - Query for results of observation"
+		},
+		{
+		  "value": "R03",
+		  "description": "QRY/DSR Display-oriented results; query/unsol. update (for backward compatibility only)"
+		},
+		{
+		  "value": "R04",
+		  "description": "ORF - Response to query; transmission of requested observation"
+		},
+		{
+		  "value": "R05",
+		  "description": "QRY/DSR - query for display results"
+		},
+		{
+		  "value": "R06",
+		  "description": "UDM - unsolicited update/display results"
+		},
+		{
+		  "value": "R07",
+		  "description": "EDR - enhanced display response"
+		},
+		{
+		  "value": "R08",
+		  "description": "TBR - tabular data response"
+		},
+		{
+		  "value": "R09",
+		  "description": "ERP - event replay response"
+		},
+		{
+		  "value": "R0R",
+		  "description": "R0R - Pharmacy prescription order query response"
+		},
+		{
+		  "value": "RAR",
+		  "description": "RAR - Pharmacy administration information query response"
+		},
+		{
+		  "value": "RDR",
+		  "description": "RDR - Pharmacy dispense information query response"
+		},
+		{
+		  "value": "RER",
+		  "description": "RER - Pharmacy encoded order information query response"
+		},
+		{
+		  "value": "RGR",
+		  "description": "RGR - Pharmacy dose information query response"
+		},
+		{
+		  "value": "S01",
+		  "description": "SRM/SRR - Request new appointment booking"
+		},
+		{
+		  "value": "S02",
+		  "description": "SRM/SRR - Request appointment rescheduling"
+		},
+		{
+		  "value": "S03",
+		  "description": "SRM/SRR - Request appointment modification"
+		},
+		{
+		  "value": "S04",
+		  "description": "SRM/SRR - Request appointment cancellation"
+		},
+		{
+		  "value": "S05",
+		  "description": "SRM/SRR - Request appointment discontinuation"
+		},
+		{
+		  "value": "S06",
+		  "description": "SRM/SRR - Request appointment deletion"
+		},
+		{
+		  "value": "S07",
+		  "description": "SRM/SRR - Request addition of service/resource on appointment"
+		},
+		{
+		  "value": "S08",
+		  "description": "SRM/SRR - Request modification of service/resource on appointment"
+		},
+		{
+		  "value": "S09",
+		  "description": "SRM/SRR - Request cancellation of service/resource on appointment"
+		},
+		{
+		  "value": "S10",
+		  "description": "SRM/SRR - Request discontinuation of service/resource on appointment"
+		},
+		{
+		  "value": "S11",
+		  "description": "SRM/SRR - Request deletion of service/resource on appointment"
+		},
+		{
+		  "value": "S12",
+		  "description": "SIU/ACK - Notification of new appointment booking"
+		},
+		{
+		  "value": "S13",
+		  "description": "SIU/ACK - Notification of appointment rescheduling"
+		},
+		{
+		  "value": "S14",
+		  "description": "SIU/ACK - Notification of appointment modification"
+		},
+		{
+		  "value": "S15",
+		  "description": "SIU/ACK - Notification of appointment cancellation"
+		},
+		{
+		  "value": "S16",
+		  "description": "SIU/ACK - Notification of appointment discontinuation"
+		},
+		{
+		  "value": "S17",
+		  "description": "SIU/ACK - Notification of appointment deletion"
+		},
+		{
+		  "value": "S18",
+		  "description": "SIU/ACK - Notification of addition of service/resource on appointment"
+		},
+		{
+		  "value": "S19",
+		  "description": "SIU/ACK - Notification of modification of service/resource on appointment"
+		},
+		{
+		  "value": "S20",
+		  "description": "SIU/ACK - Notification of cancellation of service/resource on appointment"
+		},
+		{
+		  "value": "S21",
+		  "description": "SIU/ACK - Notification of discontinuation of service/resource on appointment"
+		},
+		{
+		  "value": "S22",
+		  "description": "SIU/ACK - Notification of deletion of service/resource on appointment"
+		},
+		{
+		  "value": "S23",
+		  "description": "SIU/ACK - Notification of blocked schedule time slot(s)"
+		},
+		{
+		  "value": "S24",
+		  "description": "SIU/ACK - Notification of opened (â€œunblockedâ€) schedule time slot(s)"
+		},
+		{
+		  "value": "S25",
+		  "description": "SQM/SQR - Schedule query message and response"
+		},
+		{
+		  "value": "S26",
+		  "description": "SIU/ACK Notification that patient did not show up for schedule appointment"
+		},
+		{
+		  "value": "T01",
+		  "description": "MDM/ACK - Original document notification"
+		},
+		{
+		  "value": "T02",
+		  "description": "MDM/ACK - Original document notification and content"
+		},
+		{
+		  "value": "T03",
+		  "description": "MDM/ACK - Document status change notification"
+		},
+		{
+		  "value": "T04",
+		  "description": "MDM/ACK - Document status change notification and content"
+		},
+		{
+		  "value": "T05",
+		  "description": "MDM/ACK - Document addendum notification"
+		},
+		{
+		  "value": "T06",
+		  "description": "MDM/ACK - Document addendum notification and content"
+		},
+		{
+		  "value": "T07",
+		  "description": "MDM/ACK - Document edit notification"
+		},
+		{
+		  "value": "T08",
+		  "description": "MDM/ACK - Document edit notification and content"
+		},
+		{
+		  "value": "T09",
+		  "description": "MDM/ACK - Document replacement notification"
+		},
+		{
+		  "value": "T10",
+		  "description": "MDM/ACK - Document replacement notification and content"
+		},
+		{
+		  "value": "T11",
+		  "description": "MDM/ACK - Document cancel notification"
+		},
+		{
+		  "value": "T12",
+		  "description": "QRY/DOC - Document query"
+		},
+		{
+		  "value": "V01",
+		  "description": "VXQ - Query for vaccination record"
+		},
+		{
+		  "value": "V02",
+		  "description": "VXX - Response to vaccination query returning multiple PID matches"
+		},
+		{
+		  "value": "V03",
+		  "description": "VXR - Vaccination record response"
+		},
+		{
+		  "value": "V04",
+		  "description": "VXU - Unsolicited vaccination record update"
+		},
+		{
+		  "value": "W01",
+		  "description": "ORU - Waveform result; unsolicited transmission of requested information"
+		},
+		{
+		  "value": "W02",
+		  "description": "QRF - Waveform result; response to query"
+		}
+	  ],
+	  "0004": [
+		{
+		  "value": "E",
+		  "description": "Emergency"
+		},
+		{
+		  "value": "I",
+		  "description": "Inpatient"
+		},
+		{
+		  "value": "O",
+		  "description": "Outpatient"
+		},
+		{
+		  "value": "P",
+		  "description": "Preadmit"
+		},
+		{
+		  "value": "R",
+		  "description": "Recurring patient"
+		},
+		{
+		  "value": "B",
+		  "description": "Obstetrics"
+		},
+		{
+		  "value": "C",
+		  "description": "Commercial Account"
+		},
+		{
+		  "value": "U",
+		  "description": "Unknown"
+		}
+	  ],
+	  "0018": [
+		{
+		  "value": "AA",
+		  "description": "Associate of Arts"
+		},
+		{
+		  "value": "MD",
+		  "description": "Doctor of Medicine"
+		},
+		{
+		  "value": "PhD",
+		  "description": "Doctor of Philosophy"
+		}
+	  ],
+	  "0061": [
+		{
+		  "value": "BCV",
+		  "description": "Bank Card Validation Number"
+		},
+		{
+		  "value": "ISO",
+		  "description": "ISO Check Digit Algorithm"
+		}
+	  ],
+	  "0076": [
+		{
+		  "value": "ACK"
+		},
+		{
+		  "value": "ADR"
+		},
+		{
+		  "value": "ADT"
+		},
+		{
+		  "value": "ARD"
+		},
+		{
+		  "value": "BAR"
+		},
+		{
+		  "value": "CRM"
+		},
+		{
+		  "value": "CSU"
+		},
+		{
+		  "value": "DFT"
+		},
+		{
+		  "value": "DOC"
+		},
+		{
+		  "value": "DSR"
+		},
+		{
+		  "value": "EDR"
+		},
+		{
+		  "value": "EQQ"
+		},
+		{
+		  "value": "ERP"
+		},
+		{
+		  "value": "MCF"
+		},
+		{
+		  "value": "MDM"
+		},
+		{
+		  "value": "MFD"
+		},
+		{
+		  "value": "MFK"
+		},
+		{
+		  "value": "MFN"
+		},
+		{
+		  "value": "MFQ"
+		},
+		{
+		  "value": "MFR"
+		},
+		{
+		  "value": "NMD"
+		},
+		{
+		  "value": "NMQ"
+		},
+		{
+		  "value": "NMR"
+		},
+		{
+		  "value": "ORF"
+		},
+		{
+		  "value": "ORM"
+		},
+		{
+		  "value": "ORR"
+		},
+		{
+		  "value": "ORU"
+		},
+		{
+		  "value": "OSQ"
+		},
+		{
+		  "value": "OSR"
+		},
+		{
+		  "value": "PEX"
+		},
+		{
+		  "value": "PGL"
+		},
+		{
+		  "value": "PIN"
+		},
+		{
+		  "value": "PPG"
+		},
+		{
+		  "value": "PPP"
+		},
+		{
+		  "value": "PPR"
+		},
+		{
+		  "value": "PPT"
+		},
+		{
+		  "value": "PPV"
+		},
+		{
+		  "value": "PRR"
+		},
+		{
+		  "value": "PBR"
+		},
+		{
+		  "value": "PTR"
+		},
+		{
+		  "value": "QCK"
+		},
+		{
+		  "value": "QRY"
+		},
+		{
+		  "value": "RAR"
+		},
+		{
+		  "value": "RAS"
+		},
+		{
+		  "value": "RCI"
+		},
+		{
+		  "value": "RCL"
+		},
+		{
+		  "value": "RDE"
+		},
+		{
+		  "value": "RDR"
+		},
+		{
+		  "value": "RDS"
+		},
+		{
+		  "value": "REF"
+		},
+		{
+		  "value": "RER"
+		},
+		{
+		  "value": "RGR"
+		},
+		{
+		  "value": "RGV"
+		},
+		{
+		  "value": "ROR"
+		},
+		{
+		  "value": "RPA"
+		},
+		{
+		  "value": "RPI"
+		},
+		{
+		  "value": "RPL"
+		},
+		{
+		  "value": "RPR"
+		},
+		{
+		  "value": "RQA"
+		},
+		{
+		  "value": "RQC"
+		},
+		{
+		  "value": "RQI"
+		},
+		{
+		  "value": "RQP"
+		},
+		{
+		  "value": "RQQ"
+		},
+		{
+		  "value": "RRA"
+		},
+		{
+		  "value": "RRD"
+		},
+		{
+		  "value": "RRE"
+		},
+		{
+		  "value": "RRG"
+		},
+		{
+		  "value": "RRI"
+		},
+		{
+		  "value": "SIU"
+		},
+		{
+		  "value": "SPQ"
+		},
+		{
+		  "value": "SQM"
+		},
+		{
+		  "value": "SQR"
+		},
+		{
+		  "value": "SRM"
+		},
+		{
+		  "value": "SRR"
+		},
+		{
+		  "value": "SUR"
+		},
+		{
+		  "value": "TBR"
+		},
+		{
+		  "value": "UDM"
+		},
+		{
+		  "value": "VQQ"
+		},
+		{
+		  "value": "VXQ"
+		},
+		{
+		  "value": "VXR"
+		},
+		{
+		  "value": "VXU"
+		},
+		{
+		  "value": "VXX"
+		}
+	  ],
+	  "0103": [
+		{
+		  "value": "D",
+		  "description": "Debugging"
+		},
+		{
+		  "value": "P",
+		  "description": "Production"
+		},
+		{
+		  "value": "T",
+		  "description": "Training"
+		}
+	  ],
+	  "0104": [
+		{
+		  "value": "2",
+		  "description": "Release 2.0",
+		  "comment": "September 1988"
+		},
+		{
+		  "value": "2.0D",
+		  "description": "Demo 2.0",
+		  "comment": "October 1988"
+		},
+		{
+		  "value": "2.1",
+		  "description": "Release 2. 1",
+		  "comment": "March 1990"
+		},
+		{
+		  "value": "2.2",
+		  "description": "Release 2.2",
+		  "comment": "December 1994"
+		},
+		{
+		  "value": "2.3",
+		  "description": "Release 2.3",
+		  "comment": "March 1997"
+		},
+		{
+		  "value": "2.3.1",
+		  "description": "Release 2.3.1",
+		  "comment": "May 1999"
+		},
+		{
+		  "value": "2.4",
+		  "description": "Release 2.4",
+		  "comment": "November 2000"
+		},
+		{
+		  "value": "2.5",
+		  "description": "Release 2.5",
+		  "comment": "May 20003"
+		},
+		{
+		  "value": "2.5.1",
+		  "description": "Release 2.5.1",
+		  "comment": "January 2007"
+		},
+		{
+		  "value": "2.6",
+		  "description": "Release 2.6",
+		  "comment": "July 2007"
+		}
+	  ],
+	  "0125": [
+		{
+		  "value": "AD",
+		  "description": "Address"
+		},
+		{
+		  "value": "CF",
+		  "description": "Coded Element With Formatted Values"
+		},
+		{
+		  "value": "CK",
+		  "description": "Composite ID With Check Digit"
+		},
+		{
+		  "value": "CN",
+		  "description": "Composite ID And Name"
+		},
+		{
+		  "value": "CP",
+		  "description": "Composite Price"
+		},
+		{
+		  "value": "CWE",
+		  "description": "Coded Entry"
+		},
+		{
+		  "value": "CX",
+		  "description": "Extended Composite ID With Check Digit"
+		},
+		{
+		  "value": "DT",
+		  "description": "Date"
+		},
+		{
+		  "value": "DTM",
+		  "description": "Time Stamp (Date & Time)"
+		},
+		{
+		  "value": "ED",
+		  "description": "Encapsulated Data"
+		},
+		{
+		  "value": "FT",
+		  "description": "Formatted Text (Display)"
+		},
+		{
+		  "value": "MO",
+		  "description": "Money"
+		},
+		{
+		  "value": "NM",
+		  "description": "Numeric"
+		},
+		{
+		  "value": "PN",
+		  "description": "Person Name"
+		},
+		{
+		  "value": "RP",
+		  "description": "Reference Pointer"
+		},
+		{
+		  "value": "SN",
+		  "description": "Structured Numeric"
+		},
+		{
+		  "value": "ST",
+		  "description": "String Data"
+		},
+		{
+		  "value": "TM",
+		  "description": "Time"
+		},
+		{
+		  "value": "TN",
+		  "description": "Telephone Number"
+		},
+		{
+		  "value": "TX",
+		  "description": "Text Data (Display)"
+		},
+		{
+		  "value": "XAD",
+		  "description": "Extended Address"
+		},
+		{
+		  "value": "XCN",
+		  "description": "Extended Composite Name And Number For Persons"
+		},
+		{
+		  "value": "XON",
+		  "description": "Extended Composite Name And Number For Organizations"
+		},
+		{
+		  "value": "XPN",
+		  "description": "Extended Person Name"
+		},
+		{
+		  "value": "XTN",
+		  "description": "Extended Telecommunications Number"
+		}
+	  ],
+	  "0201": [
+		{
+		  "value": "PRN",
+		  "description": "Primary Residence Number"
+		},
+		{
+		  "value": "WPN",
+		  "description": "Work Phone Number"
+		}
+	  ],
+	  "0202": [
+		{
+		  "value": "PH",
+		  "description": "Telephone"
+		},
+		{
+		  "value": "FX",
+		  "description": "Fax"
+		}
+	  ],
+	  "0203": [
+		{
+		  "value": "MR",
+		  "description": "Medical Record Number"
+		},
+		{
+		  "value": "SS",
+		  "description": "Social Security Number"
+		},
+		{
+		  "value": "NI",
+		  "description": "National Insurance Number"
+		},
+		{
+		  "value": "MC",
+		  "description": "Master Citizen Number"
+		}
+	  ],
+	  "0204": [
+		{
+		  "value": "L",
+		  "description": "Legal"
+		},
+		{
+		  "value": "D",
+		  "description": "Doing Business As"
+		},
+		{
+		  "value": "A",
+		  "description": "Alias"
+		}
+	  ],
+	  "0207": [
+		{
+		  "value": "a",
+		  "description": "Archive"
+		},
+		{
+		  "value": "i",
+		  "description": "Initial Load"
+		},
+		{
+		  "value": "r",
+		  "description": "Restore from archive"
+		}
+	  ],
+	  "0211": [
+		{
+		  "value": "8859/1",
+		  "description": "ISO IR 100"
+		},
+		{
+		  "value": "UNICODE",
+		  "description": "Unicode"
+		},
+		{
+		  "value": "ASCII",
+		  "description": "ASCII"
+		}
+	  ],
+	  "0212": [
+		{
+		  "value": "US",
+		  "description": "United States"
+		},
+		{
+		  "value": "CA",
+		  "description": "Canada"
+		},
+		{
+		  "value": "MX",
+		  "description": "Mexico"
+		}
+	  ],
+	  "0288": [
+		{
+		  "value": "001",
+		  "description": "Census Tract 001"
+		},
+		{
+		  "value": "002",
+		  "description": "Census Tract 002"
+		}
+	  ],
+	  "0289": [
+		{
+		  "value": "001",
+		  "description": "County Code 001"
+		},
+		{
+		  "value": "002",
+		  "description": "County Code 002"
+		}
+	  ],
+	  "0300": [
+		{
+		  "value": "ISO",
+		  "description": "ISO Object Identifier"
+		}
+	  ],
+	  "0301": [
+		{
+		  "value": "DNS",
+		  "description": "Domain Name System"
+		}
+	  ],
+	  "0306": [
+		{
+		  "value": "B",
+		  "description": "Bed"
+		},
+		{
+		  "value": "R",
+		  "description": "Room"
+		}
+	  ],
+	  "0354": [
+		{
+		  "value": "ADT_A01",
+		  "description": "A01, A04, A05, A08, A13, A14, A28, A31"
+		},
+		{
+		  "value": "ADT_A02",
+		  "description": "A02, A21, A22, A23, A25, A26, A27, A29, A32, A33"
+		},
+		{
+		  "value": "ADT_A03",
+		  "description": "A03"
+		},
+		{
+		  "value": "ADT_A06",
+		  "description": "A06, A07"
+		},
+		{
+		  "value": "ADT_A09",
+		  "description": "A09, A10, A11, A15"
+		},
+		{
+		  "value": "ADT_A12",
+		  "description": "A12"
+		},
+		{
+		  "value": "ADT_A16",
+		  "description": "A16"
+		},
+		{
+		  "value": "ADT_A17",
+		  "description": "A17"
+		},
+		{
+		  "value": "ADT_A18",
+		  "description": "A18"
+		},
+		{
+		  "value": "ADT_A20",
+		  "description": "A20"
+		},
+		{
+		  "value": "ADT_A24",
+		  "description": "A24"
+		},
+		{
+		  "value": "ADT_A28",
+		  "description": "A28, A31"
+		},
+		{
+		  "value": "ADT_A30",
+		  "description": "A30, A34, A35, 136, A46, A47, A48, A49"
+		},
+		{
+		  "value": "ADT_A37",
+		  "description": "A37"
+		},
+		{
+		  "value": "ADT_A38",
+		  "description": "A38"
+		},
+		{
+		  "value": "ADT_A39",
+		  "description": "A39, A40, A41, A42"
+		},
+		{
+		  "value": "ADT_A43",
+		  "description": "A43, A44"
+		},
+		{
+		  "value": "ADT_A45",
+		  "description": "A45"
+		},
+		{
+		  "value": "ADT_A50",
+		  "description": "A50, A51"
+		},
+		{
+		  "value": "ARD_A19",
+		  "description": "A19"
+		},
+		{
+		  "value": "BAR_P01",
+		  "description": "P01, P05"
+		},
+		{
+		  "value": "BAR_P02",
+		  "description": "P02"
+		},
+		{
+		  "value": "BAR_P06",
+		  "description": "P06"
+		},
+		{
+		  "value": "CRM_C01",
+		  "description": "C01, C02, C03, C04, C05, C06, C07, C08"
+		},
+		{
+		  "value": "CSU_C09",
+		  "description": "C09, C10, C11, C12"
+		},
+		{
+		  "value": "DFT_P03",
+		  "description": "P03"
+		},
+		{
+		  "value": "DOC_T12",
+		  "description": "T12"
+		},
+		{
+		  "value": "DSR_Q01",
+		  "description": "Q01"
+		},
+		{
+		  "value": "DSR_Q03",
+		  "description": "Q03"
+		},
+		{
+		  "value": "EDR_R07",
+		  "description": "R07"
+		},
+		{
+		  "value": "EQQ_Q04",
+		  "description": "Q04"
+		},
+		{
+		  "value": "ERP_R09",
+		  "description": "R09"
+		},
+		{
+		  "value": "MDM_T01",
+		  "description": "T01, T03, T05, T07, T09, T11"
+		},
+		{
+		  "value": "MDM_T02",
+		  "description": "T02, T04, T06, T08, T10"
+		},
+		{
+		  "value": "MFD_P09",
+		  "description": "P09"
+		},
+		{
+		  "value": "MFK_M01",
+		  "description": "M01, M03, M05, M06, M07, M08, M09, M10, M11"
+		},
+		{
+		  "value": "MFN_M01",
+		  "description": "M01"
+		},
+		{
+		  "value": "MFN_M02",
+		  "description": "M02"
+		},
+		{
+		  "value": "MFN_M03",
+		  "description": "M03"
+		},
+		{
+		  "value": "MFN_M05",
+		  "description": "M05"
+		},
+		{
+		  "value": "MFN_M06",
+		  "description": "M06"
+		},
+		{
+		  "value": "MFN_M07",
+		  "description": "M07"
+		},
+		{
+		  "value": "MFN_M08",
+		  "description": "M08"
+		},
+		{
+		  "value": "MFN_M09",
+		  "description": "M09"
+		},
+		{
+		  "value": "MFN_M10",
+		  "description": "M10"
+		},
+		{
+		  "value": "MFN_M11",
+		  "description": "M11"
+		},
+		{
+		  "value": "ORF_R02",
+		  "description": "R02, R04"
+		},
+		{
+		  "value": "ORM__O01",
+		  "description": "O01"
+		},
+		{
+		  "value": "ORM_Q06",
+		  "description": "Q06"
+		},
+		{
+		  "value": "ORR_O02",
+		  "description": "O02"
+		},
+		{
+		  "value": "ORR_Q06",
+		  "description": "Q06"
+		},
+		{
+		  "value": "ORU_R01",
+		  "description": "R01"
+		},
+		{
+		  "value": "ORU_W01",
+		  "description": "W01"
+		},
+		{
+		  "value": "OSQ_Q06",
+		  "description": "Q06"
+		},
+		{
+		  "value": "OSR_Q06",
+		  "description": "Q06"
+		},
+		{
+		  "value": "PEX_P07",
+		  "description": "P07, P08"
+		},
+		{
+		  "value": "PGL_PC6",
+		  "description": "PC6, PC7, PC8"
+		},
+		{
+		  "value": "PIN_107",
+		  "description": "I07"
+		},
+		{
+		  "value": "PPG_PCG",
+		  "description": "PCC, PCH, PCJ"
+		},
+		{
+		  "value": "PPP_PCB",
+		  "description": "PCB, PCD"
+		},
+		{
+		  "value": "PPR_PC1",
+		  "description": "PC1, PC2, PC3"
+		},
+		{
+		  "value": "PPT_PCL",
+		  "description": "PCL"
+		},
+		{
+		  "value": "PPV_PCA",
+		  "description": "PCA"
+		},
+		{
+		  "value": "PRR_PC5",
+		  "description": "PC5"
+		},
+		{
+		  "value": "PTR_PCF",
+		  "description": "PCF"
+		},
+		{
+		  "value": "QCK_Q02",
+		  "description": "Q02"
+		},
+		{
+		  "value": "QRY_A19",
+		  "description": "A19"
+		},
+		{
+		  "value": "QRY_PC4",
+		  "description": "PC4, PC9, PCE, PCK"
+		},
+		{
+		  "value": "QRY_Q01",
+		  "description": "Q01"
+		},
+		{
+		  "value": "QRY_Q02",
+		  "description": "Q02"
+		},
+		{
+		  "value": "QRY_R02",
+		  "description": "R02, R04"
+		},
+		{
+		  "value": "QRY_T12",
+		  "description": "T12"
+		},
+		{
+		  "value": "RAR_RAR",
+		  "description": "RAR"
+		},
+		{
+		  "value": "RAS_O01",
+		  "description": "O01"
+		},
+		{
+		  "value": "RAS_O02",
+		  "description": "O022"
+		},
+		{
+		  "value": "RCI_I05",
+		  "description": "I05"
+		},
+		{
+		  "value": "RCL_I06",
+		  "description": "I06"
+		},
+		{
+		  "value": "RDE_O01",
+		  "description": "O01"
+		},
+		{
+		  "value": "RDR_RDR",
+		  "description": "RDR"
+		},
+		{
+		  "value": "RDS_O01",
+		  "description": "O01"
+		},
+		{
+		  "value": "REF_I12",
+		  "description": "I12, I13, I14, I15"
+		},
+		{
+		  "value": "RER_RER",
+		  "description": "RER"
+		},
+		{
+		  "value": "RGR_RGR",
+		  "description": "RGR"
+		},
+		{
+		  "value": "RGV_O01",
+		  "description": "O01"
+		},
+		{
+		  "value": "RPA_I08",
+		  "description": "I08, I09. I10, 1II"
+		},
+		{
+		  "value": "RPI_I0I",
+		  "description": "I01, I04"
+		},
+		{
+		  "value": "RPL_I02",
+		  "description": "I02"
+		},
+		{
+		  "value": "RPR_I03",
+		  "description": "I03"
+		},
+		{
+		  "value": "RQA_I08",
+		  "description": "I08, I09, I10, I11"
+		},
+		{
+		  "value": "RQC_I05",
+		  "description": "I05"
+		},
+		{
+		  "value": "RQC_I06",
+		  "description": "I06"
+		},
+		{
+		  "value": "RQI_I0I",
+		  "description": "I01, I02, I03"
+		},
+		{
+		  "value": "RQP_I04",
+		  "description": "I04"
+		},
+		{
+		  "value": "RQQ_Q09",
+		  "description": "Q09"
+		},
+		{
+		  "value": "RRA_O02",
+		  "description": "O02"
+		},
+		{
+		  "value": "RRD_O02",
+		  "description": "O02"
+		},
+		{
+		  "value": "RRE_O01",
+		  "description": "O01"
+		},
+		{
+		  "value": "RRG_O02",
+		  "description": "O02"
+		},
+		{
+		  "value": "RRI_I12",
+		  "description": "I12, I13, I14, I15"
+		},
+		{
+		  "value": "RROR_ROR",
+		  "description": "ROR"
+		},
+		{
+		  "value": "SIIU_S12",
+		  "description": "S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S26"
+		},
+		{
+		  "value": "SPQ_Q08",
+		  "description": "Q08"
+		},
+		{
+		  "value": "SQM_S25",
+		  "description": "S25"
+		},
+		{
+		  "value": "SQR_S25",
+		  "description": "S25"
+		},
+		{
+		  "value": "SRM_S01",
+		  "description": "S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11"
+		},
+		{
+		  "value": "SRM_T12",
+		  "description": "T12"
+		},
+		{
+		  "value": "SRR_S01",
+		  "description": "S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11"
+		},
+		{
+		  "value": "SRR_T12",
+		  "description": "T12"
+		},
+		{
+		  "value": "SUR_P09",
+		  "description": "P09"
+		},
+		{
+		  "value": "TBR_R09",
+		  "description": "R09"
+		},
+		{
+		  "value": "UDM_Q05",
+		  "description": "Q05"
+		},
+		{
+		  "value": "VQQ_Q07",
+		  "description": "Q07"
+		},
+		{
+		  "value": "VXQ_V01",
+		  "description": "V01"
+		},
+		{
+		  "value": "VXR_V03",
+		  "description": "V03"
+		},
+		{
+		  "value": "VXU_V04",
+		  "description": "V04"
+		},
+		{
+		  "value": "VXX_V02",
+		  "description": "V02"
+		},
+		{
+		  "value": ""
+		}
+	  ],
+	  "0363": [
+		{
+		  "value": "ISO",
+		  "description": "ISO"
+		},
+		{
+		  "value": "HL7",
+		  "description": "HL7"
+		}
+	  ],
+	  "0399": [
+		{
+		  "value": "USA",
+		  "description": "United States of America"
+		},
+		{
+		  "value": "CAN",
+		  "description": "Canada"
+		},
+		{
+		  "value": "MEX",
+		  "description": "Mexico"
+		}
+	  ],
+	  "0429": [
+		{
+		  "value": "Y",
+		  "description": "Yes"
+		},
+		{
+		  "value": "N",
+		  "description": "No"
+		}
+	  ],
+	  "0444": [
+		{
+		  "value": "F",
+		  "description": "Family Name First"
+		},
+		{
+		  "value": "G",
+		  "description": "Given Name First"
+		}
+	  ],
+	  "0445": [
+		{
+		  "value": "ISS",
+		  "description": "Issued"
+		},
+		{
+		  "value": "NS",
+		  "description": "Not Supported"
+		}
+	  ],
+	  "0446": [
+		{
+		  "value": "CANINE",
+		  "description": "Canine"
+		},
+		{
+		  "value": "FELINE",
+		  "description": "Feline"
+		}
+	  ],
+	  "0447": [
+		{
+		  "value": "LAB",
+		  "description": "Labrador"
+		},
+		{
+		  "value": "GER",
+		  "description": "German Shepherd"
+		}
+	  ],
+	  "0448": [
+		{
+		  "value": "IDE",
+		  "description": "Identity"
+		},
+		{
+		  "value": "PRF",
+		  "description": "Professional"
+		}
+	  ],
+	  "0465": [
+		{
+		  "value": "A",
+		  "description": "Alphanumeric"
+		},
+		{
+		  "value": "N",
+		  "description": "Numeric"
+		}
+	  ],
+	  "0616": [
+		{
+		  "value": "EX",
+		  "description": "Expired"
+		},
+		{
+		  "value": "ED",
+		  "description": "Edited"
+		}
+	  ],
+	  "0617": [
+		{
+		  "value": "H",
+		  "description": "Home"
+		},
+		{
+		  "value": "W",
+		  "description": "Work"
+		},
+		{
+		  "value": "O",
+		  "description": "Other"
+		}
+	  ],
+	  "0618": [
+		{
+		  "value": "P",
+		  "description": "Protected"
+		},
+		{
+		  "value": "U",
+		  "description": "Unprotected"
+		}
+	  ]
+	},
+	"dataTypes": {
+	  "IS": {
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": 26
+			  }
+			]
+		  }
+		}
+	  },
+	  "TN": {
+		"_description": "Telephone Number",
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "ST": {
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": 26
+			  }
+			]
+		  }
+		}
+	  },
+	  "ID": {
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": 26
+			  }
+			]
+		  }
+		}
+	  },
+	  "DT": {
+		"_description": "Date",
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": 8
+			  }
+			]
+		  }
+		}
+	  },
+	  "DTM": {
+		"_descriptions": "Date/Time",
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": 26
+			  }
+			]
+		  }
+		}
+	  },
+	  "TX": {
+		"separator": "",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"length": 65536,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "string",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "Varies": {
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "any",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "SI": {
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "uint",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "NM": {
+		"separator": "",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "",
+				"type": "int",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "HD": {
+		"_descriptions": "Hierarchic Designator",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "namespaceId",
+				"type": "IS",
+				"table": "0300",
+				"length": -1
+			  },
+			  {
+				"name": "universalId",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "universalIdType",
+				"type": "ID",
+				"table": "0301",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "MSG" : {
+		"_descriptions": "Messge Type",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 7,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "messageType",
+				"type": "ID",
+				"table": "0076",
+				"length": -1
+			  },
+			  {
+				"mandatory": true,
+				"name": "triggerEvent",
+				"type": "ID",
+				"table": "0003",
+				"length": -1
+			  },
+			  {
+				"mandatory": true,
+				"name": "messageStructure",
+				"type": "ID",
+				"table": "0354",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "ProcessingType": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "processingId",
+				"type": "ID",
+				"table": "0103",
+				"length": -1
+			  },
+			  {
+				"name": "processingMode",
+				"type": "ID",
+				"table": "0207",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "CWE": {
+		"_description": "Coded With Exceptions",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "identifier",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "text",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "nameOfCodingSystem",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "alternateIdentifier",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "alternateText",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "nameOfAlternateCodingSystem",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "codingSystemVersionId",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "alternateCodingSystemVersionId",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "originalText",
+				"type": "ST",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "CodedElement": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "identifier",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "text",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "nameOfCodingSystem",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "alternateComponents",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "alternateText",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "nameOfAlternateCodingSystem",
+				"type": "ST",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "VersionId": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 7,
+			"parts": [
+			  {
+				"name": "versionId",
+				"type": "ID",
+				"table": "0104",
+				"length": -1
+			  },
+			  {
+				"name": "internationalizationCode",
+				"type": "CodedElement",
+				"length": -1
+			  },
+			  {
+				"name": "internationalVersionId",
+				"type": "CodedElement",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "FamilyName": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 194,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "surname",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "ownSurnamePrefix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "ownSurname",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "surnamePrefixFromPartnerSpouse",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "surnameFromPartnerSpouse",
+				"type": "ST",
+				"length": 50
+			  }
+			]
+		  }
+		}
+	  },
+	  "DR": {
+		"_descriptions": "Date Range",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 49,
+			"parts": [
+			  {
+				"name": "rangeStart",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "rangeEnd",
+				"type": "DTM",
+				"length": 24
+			  }
+			]
+		  }
+		}
+	  },
+	  "SAD": {
+		"_descriptions": "Street Address",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 184,
+			"parts": [
+			  {
+				"name": "streetOrMailingAddress",
+				"type": "ST",
+				"length": 120
+			  },
+			  {
+				"name": "streetName",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "dwellingNumber",
+				"type": "ST",
+				"length": 12
+			  }
+			]
+		  }
+		}
+	  },
+	  "DLN": {
+		"_descriptions": "Drivers License Number",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "driverLicenseNumber",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "IssuingStateProvinceCountry",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "expirationDT",
+				"type": "DTM",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "XTN": {
+		"_descriptions": "Extended Telecommunication Number",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "telephoneNumber",
+				"type": "TN",
+				"length": -1
+			  },
+			  {
+				"name": "telecommunicationUseCode",
+				"type": "ID",
+				"table": "0201",
+				"length": -1
+			  },
+			  {
+				"name": "telecommunicationEquipmentType",
+				"type": "ID",
+				"table": "0202",
+				"length": -1
+			  },
+			  {
+				"name": "emailAddress",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "countryCode",
+				"type": "NM",
+				"length": -1
+			  },
+			  {
+				"name": "areaCode",
+				"type": "NM",
+				"length": -1
+			  },
+			  {
+				"name": "phoneNumber",
+				"type": "NM",
+				"length": -1
+			  },
+			  {
+				"name": "extension",
+				"type": "NM",
+				"length": -1
+			  },
+			  {
+				"name": "anyText",
+				"type": "ST",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  },
+	  "EI": {
+		"_descriptions": "Entity Identifier",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 427,
+			"parts": [
+			  {
+				"name": "entityIdentifier",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "namespaceId",
+				"type": "IS",
+				"length": 20
+			  },
+			  {
+				"name": "universalId",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "universalIdType",
+				"type": "ID",
+				"length": 6
+			  }
+			]
+		  }
+		}
+	  },
+	  "XAD": {
+		"_descriptions": "Extended Address",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 2915,
+			"parts": [
+			  {
+				"name": "streetAddress",
+				"type": "SAD",
+				"length": 184
+			  },
+			  {
+				"name": "otherDestination",
+				"type": "ST",
+				"length": 120
+			  },
+			  {
+				"name": "city",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "stateOrProvince",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "zipOrPostalCode",
+				"type": "ST",
+				"length": 12
+			  },
+			  {
+				"name": "country",
+				"type": "ID",
+				"table": "0399",
+				"length": 3
+			  },
+			  {
+				"name": "addressType",
+				"type": "ID",
+				"table": "0190",
+				"length": 3
+			  },
+			  {
+				"name": "otherGeographicDesignation",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "CountyOrParishCode",
+				"type": "IS",
+				"table": "0289",
+				"length": 20
+			  },
+			  {
+				"name": "censusTract",
+				"type": "IS",
+				"table": "0288",
+				"length": 20
+			  },
+			  {
+				"name": "addressRepresentationCode",
+				"type": "ID",
+				"table": "0465",
+				"length": 1
+			  },
+			  {
+				"name": "addressValidtyRange",
+				"type": "DR",
+				"length": 49
+			  },
+			  {
+				"name": "effectiveDT",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "expirationDT",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "expirationReason",
+				"type": "CWE",
+				"table": "0616",
+				"length": 705
+			  },
+			  {
+				"name": "temporaryIndicator",
+				"type": "ID",
+				"table": "0136",
+				"length": 1
+			  },
+			  {
+				"name": "busAddressIndicator",
+				"type": "ID",
+				"table": "0136",
+				"length": 1
+			  },
+			  {
+				"name": "addressUsage",
+				"type": "ID",
+				"table": "0617",
+				"length": 44
+			  },
+			  {
+				"name": "addresse",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "comment",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "preferenceOrder",
+				"type": "NM",
+				"length": 2
+			  },
+			  {
+				"name": "protectionCode",
+				"type": "CWE",
+				"table": "0618",
+				"length": 705
+			  },
+			  {
+				"name": "addressIdentifier",
+				"type": "EI",
+				"length": 427
+			  }
+			]
+		  }
+		}
+	  },
+	  "XPN": {
+		"_descriptions": "Extended Person Name",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 1317,
+			"parts": [
+			  {
+				"name": "familyName",
+				"type": "FamilyName",
+				"length": 194
+			  },
+			  {
+				"name": "givenName",
+				"type": "ST",
+				"length": 30
+			  },
+			  {
+				"name": "secondName",
+				"type": "ST",
+				"length": 30
+			  },
+			  {
+				"name": "suffix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "prefix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "degree",
+				"type": "IS",
+				"table": "0360",
+				"length": 6
+			  },
+			  {
+				"name": "nameTypeCode",
+				"type": "ID",
+				"table": "0200",
+				"length": 1
+			  },
+			  {
+				"name": "nameRepresentationCode",
+				"type": "ID",
+				"table": "0465",
+				"length": 1
+			  },
+			  {
+				"name": "nameContext",
+				"type": "CWE",
+				"table": "0448",
+				"length": 3
+			  },
+			  {
+				"name": "nameValidityRange",
+				"type": "DR",
+				"length": 227
+			  },
+			  {
+				"name": "nameAssembleOrder",
+				"type": "ID",
+				"table": "0444",
+				"length": -1
+			  },
+			  {
+				"name": "effectiveDT",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "expirationDT",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "professionalSuffix",
+				"type": "ST",
+				"length": 199
+			  }
+			]
+		  }
+		}
+	  },
+	  "CX": {
+		"_descriptions": "Extended Composite ID with Check Digit",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 1916,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "idNumber",
+				"type": "ST",
+				"length": 15
+			  },
+			  {
+				"name": "identifierCheckDigit",
+				"type": "ST",
+				"length": 4
+			  },
+			  {
+				"name": "checkDigitScheme",
+				"type": "ID",
+				"table": "0061",
+				"length": 3
+			  },
+			  {
+				"name": "assigningAuthority",
+				"type": "HD",
+				"table": "0363",
+				"length": 227
+			  },
+			  {
+				"name": "identifierTypeCode",
+				"type": "ID",
+				"table": "0203",
+				"length": 5
+			  },
+			  {
+				"name": "assigningFacility",
+				"type": "HD",
+				"length": 227
+			  },
+			  {
+				"name": "effectiveDT",
+				"type": "DT",
+				"length": 8
+			  },
+			  {
+				"name": "expirationDT",
+				"type": "DT",
+				"length": 8
+			  },
+			  {
+				"name": "assigningJurisdiction",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "assigningAgencyOrDepartment",
+				"type": "CWE",
+				"length": 705
+			  }
+			]
+		  }
+		}
+	  },
+	  "XON": {
+		"_descriptions": "Extended Composite Name and Identification Number for Organizations",
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": 570,
+			"parts": [
+			  {
+				"name": "organizationName",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "organizationNameTypeCode",
+				"type": "IS",
+				"table": "0204",
+				"length": 20
+			  },
+			  {
+				"name": "idNumber",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "checkDigitScheme",
+				"type": "ID",
+				"table": "0061",
+				"length": 3
+			  },
+			  {
+				"name": "assigningAuthority",
+				"type": "HD",
+				"table": "0363",
+				"length": 227
+			  },
+			  {
+				"name": "identifierTypeCode",
+				"type": "ID",
+				"length": 5
+			  },
+			  {
+				"name": "assigningFacility",
+				"type": "HD",
+				"length": 227
+			  },
+			  {
+				"name": "nameRepresentationCode",
+				"type": "ID",
+				"table": "0465",
+				"length": 1
+			  },
+			  {
+				"name": "organizationIdentifier",
+				"type": "ST",
+				"length": 20
+			  }
+			]
+		  }
+		}
+	  },
+	  "PL": {
+		"_descriptions": "Person Location",
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"length": 80,
+			"parts": [
+			  {
+				"name": "pointOfCare",
+				"type": "ST",
+				"length": 10
+			  },
+			  {
+				"name": "room",
+				"type": "ST",
+				"length": 10
+			  },
+			  {
+				"name": "bed",
+				"type": "ST",
+				"length": 10
+			  },
+			  {
+				"name": "facility",
+				"type": "HD",
+				"length": 227
+			  },
+			  {
+				"name": "locationStatus",
+				"type": "IS",
+				"length": 2
+			  },
+			  {
+				"name": "patientLocationType",
+				"type": "IS",
+				"length": 2
+			  },
+			  {
+				"name": "building",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "floor",
+				"type": "ST",
+				"length": 10
+			  },
+			  {
+				"name": "locationDescription",
+				"type": "ST",
+				"length": 20
+			  }
+			]
+		  }
+		}
+	  },
+	  "XCN": {
+		"_descriptions": "Extended Composite ID Number and Name for Persons",
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "idNumber",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "familyName",
+				"type": "FamilyName",
+				"length": 194
+			  },
+			  {
+				"name": "givenName",
+				"type": "ST",
+				"length": 30
+			  },
+			  {
+				"name": "secondNames",
+				"type": "ST",
+				"length": 30
+			  },
+			  {
+				"name": "suffix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "prefix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "degree",
+				"type": "IS",
+				"table": "0360",
+				"length": 6
+			  },
+			  {
+				"name": "sourceTable",
+				"type": "ID",
+				"length": -1
+			  },
+			  {
+				"name": "assigningAuthority",
+				"type": "HD",
+				"length": 227
+			  },
+			  {
+				"name": "nameTypeCode",
+				"type": "ID",
+				"table": "0200",
+				"length": 1
+			  },
+			  {
+				"name": "identifierCheckDigit",
+				"type": "ST",
+				"length": -1
+			  },
+			  {
+				"name": "checkDigitScheme",
+				"type": "ID",
+				"table": "0061",
+				"length": 3
+			  },
+			  {
+				"name": "assigningFacility",
+				"type": "HD",
+				"length": 227
+			  }
+			]
+		  }
+		}
+	  },
+	  "FC": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 2,
+			"length": 45,
+			"parts": [
+			  {
+				"name": "financialClassCode",
+				"type": "IS",
+				"length": 20,
+				"mandatory": true,
+				"table": "0064"
+			  },
+			  {
+				"name": "effectiveDate",
+				"type": "DTM",
+				"length": 24
+			  }
+			]
+		  }
+		}
+	  },
+	  "DLD": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 2,
+			"length": 730,
+			"parts": [
+			  {
+				"name": "dischargeToLocation",
+				"type": "CWE",
+				"length": 705,
+				"mandatory": true,
+				"table": "0113"
+			  },
+			  {
+				"name": "effectiveDate",
+				"type": "DTM",
+				"length": 24
+			  }
+			]
+		  }
+		}
+	  },
+	  "SPS": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 7,
+			"parts": [
+			  {
+				"name": "specimenSourceNameOrCode",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "additives",
+				"type": "CWE",
+				"length": 705,
+				"table": "0371"
+			  },
+			  {
+				"name": "specimenCollectionMethod",
+				"type": "TX",
+				"length": 200
+			  },
+			  {
+				"name": "bodySite",
+				"type": "CWE",
+				"length": 705,
+				"table": "0163"
+			  },
+			  {
+				"name": "siteModifier",
+				"type": "CWE",
+				"length": 705,
+				"table": "0495"
+			  },
+			  {
+				"name": "collectionMethodModifierCode",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "specimenRole",
+				"type": "CWE",
+				"length": 705,
+				"table": "0369"
+			  }
+			]
+		  }
+		}
+	  },
+	  "MOC": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 2,
+			"length": 726,
+			"parts": [
+			  {
+				"name": "monetaryAmount",
+				"type": "MO",
+				"length": 20
+			  },
+			  {
+				"name": "chargeCode",
+				"type": "CWE",
+				"length": 705
+			  }
+			]
+		  }
+		}
+	  },
+	  "MO": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 2,
+			"length": 20,
+			"parts": [
+			  {
+				"name": "quantity",
+				"type": "NM",
+				"length": 16
+			  },
+			  {
+				"name": "denomination",
+				"type": "ID",
+				"length": 3,
+				"table": "ISO4217"
+			  }
+			]
+		  }
+		}
+	  },
+	  "PRL": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 3,
+			"length": 977,
+			"parts": [
+			  {
+				"name": "parentObservationIdentifier",
+				"type": "CWE",
+				"length": 705,
+				"mandatory": true
+			  },
+			  {
+				"name": "parentObservationSubIdentifier",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "parentObservationValueDescriptor",
+				"type": "TX",
+				"length": 250
+			  }
+			]
+		  }
+		}
+	  },
+	  "TQ": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 12,
+			"parts": [
+			  {
+				"name": "quantity",
+				"type": "CQ",
+				"length": 267
+			  },
+			  {
+				"name": "interval",
+				"type": "RI",
+				"length": 206
+			  },
+			  {
+				"name": "duration",
+				"type": "ST",
+				"length": 6
+			  },
+			  {
+				"name": "startDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "endDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "priority",
+				"type": "ST",
+				"length": 6
+			  },
+			  {
+				"name": "condition",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "text",
+				"type": "TX",
+				"length": 200
+			  },
+			  {
+				"name": "conjunction",
+				"type": "ID",
+				"length": 1,
+				"table": "0472"
+			  },
+			  {
+				"name": "orderSequencing",
+				"type": "OSD",
+				"length": 110
+			  },
+			  {
+				"name": "occurrenceDuration",
+				"type": "CE",
+				"length": 705
+			  },
+			  {
+				"name": "totalOccurrences",
+				"type": "NM",
+				"length": 4
+			  }
+			]
+		  }
+		}
+	  },
+	  "CNE": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 9,
+			"parts": [
+			  {
+				"name": "identifier",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "text",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "nameOfCodingSystem",
+				"type": "ID",
+				"length": 20,
+				"table": "0396"
+			  },
+			  {
+				"name": "alternateIdentifier",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "alternateText",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "nameOfAlternateCodingSystem",
+				"type": "ID",
+				"length": 20,
+				"table": "0396"
+			  },
+			  {
+				"name": "codingSystemVersionId",
+				"type": "ST",
+				"length": 10,
+				"mandatory": true
+			  },
+			  {
+				"name": "alternateCodingSystemVersionId",
+				"type": "ST",
+				"length": 10
+			  },
+			  {
+				"name": "originalText",
+				"type": "ST",
+				"length": 199
+			  }
+			]
+		  }
+		}
+	  },
+	  "EIP": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 2,
+			"parts": [
+			  {
+				"name": "placer",
+				"type": "EI",
+				"length": 427
+			  },
+			  {
+				"name": "filler",
+				"type": "EI",
+				"length": 427
+			  }
+			]
+		  }
+		}
+	  },
+	  "NDL": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 11,
+			"parts": [
+			  {
+				"name": "name",
+				"type": "CNN",
+				"length": 406
+			  },
+			  {
+				"name": "startDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "endDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "pointOfCare",
+				"type": "IS",
+				"length": 20,
+				"table": "0302"
+			  },
+			  {
+				"name": "room",
+				"type": "IS",
+				"length": 20,
+				"table": "0303"
+			  },
+			  {
+				"name": "bed",
+				"type": "IS",
+				"length": 20,
+				"table": "0304"
+			  },
+			  {
+				"name": "facility",
+				"type": "HD",
+				"length": 227
+			  },
+			  {
+				"name": "locationStatus",
+				"type": "IS",
+				"length": 20,
+				"table": "0306"
+			  },
+			  {
+				"name": "patientLocationType",
+				"type": "IS",
+				"length": 20,
+				"table": "0305"
+			  },
+			  {
+				"name": "building",
+				"type": "IS",
+				"length": 20,
+				"table": "0307"
+			  },
+			  {
+				"name": "floor",
+				"type": "IS",
+				"length": 20,
+				"table": "0308"
+			  }
+			]
+		  }
+		}
+	  },
+	  "CQ": {
+		"_descriptions": "Composite Quantity with Units",
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"name": "quantity",
+				"type": "NM",
+				"length": -1
+			  },
+			  {
+				"name": "units",
+				"type": "CWE",
+				"length": 705
+			  }
+			]
+		  }
+		}
+	  },
+	  "CNN": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 11,
+			"parts": [
+			  {
+				"name": "idNumber",
+				"type": "ST",
+				"length": 15
+			  },
+			  {
+				"name": "familyName",
+				"type": "ST",
+				"length": 50
+			  },
+			  {
+				"name": "givenName",
+				"type": "ST",
+				"length": 30
+			  },
+			  {
+				"name": "secondAndFurtherGivenNamesOrInitialsThereof",
+				"type": "ST",
+				"length": 30
+			  },
+			  {
+				"name": "suffix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "prefix",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "degree",
+				"type": "IS",
+				"length": 5,
+				"table": "0360"
+			  },
+			  {
+				"name": "sourceTable",
+				"type": "IS",
+				"length": 4,
+				"mandatory": true,
+				"table": "0297"
+			  },
+			  {
+				"name": "assigningAuthorityNamespaceId",
+				"type": "IS",
+				"length": 20,
+				"mandatory": true,
+				"table": "0363"
+			  },
+			  {
+				"name": "assigningAuthorityUniversalId",
+				"type": "ST",
+				"length": 199,
+				"mandatory": true
+			  },
+			  {
+				"name": "assigningAuthorityUniversalIdType",
+				"type": "ID",
+				"length": 6,
+				"mandatory": true,
+				"table": "0301"
+			  }
+			]
+		  }
+		}
+	  },
+	  "RI": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 2,
+			"parts": [
+			  {
+				"name": "repeatPattern",
+				"type": "IS",
+				"length": 6,
+				"table": "0335"
+			  },
+			  {
+				"name": "explicitTimeInterval",
+				"type": "ST",
+				"length": 199
+			  }
+			]
+		  }
+		}
+	  },
+	  "OSD": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 11,
+			"parts": [
+			  {
+				"name": "sequenceResultsFlag",
+				"type": "ID",
+				"length": 1,
+				"mandatory": true,
+				"table": "0524"
+			  },
+			  {
+				"name": "placerOrderNumberEntityIdentifier",
+				"type": "ST",
+				"length": 15,
+				"mandatory": true
+			  },
+			  {
+				"name": "placerOrderNumberNamespaceId",
+				"type": "ID",
+				"length": 6,
+				"table": "0363"
+			  },
+			  {
+				"name": "fillerOrderNumberEntityIdentifier",
+				"type": "ST",
+				"length": 15,
+				"mandatory": true
+			  },
+			  {
+				"name": "fillerOrderNumberNamespaceId",
+				"type": "ID",
+				"length": 6,
+				"table": "0363"
+			  },
+			  {
+				"name": "sequenceConditionValue",
+				"type": "ST",
+				"length": 12
+			  },
+			  {
+				"name": "maximumNumberOfRepeats",
+				"type": "NM",
+				"length": 3
+			  },
+			  {
+				"name": "placerOrderNumberUniversalId",
+				"type": "ST",
+				"length": 15,
+				"mandatory": true
+			  },
+			  {
+				"name": "placerOrderNumberUniversalIdType",
+				"type": "ID",
+				"length": 6,
+				"table": "0301"
+			  },
+			  {
+				"name": "fillerOrderNumberUniversalId",
+				"type": "ST",
+				"length": 15,
+				"mandatory": true
+			  },
+			  {
+				"name": "fillerOrderNumberUniversalIdType",
+				"type": "ID",
+				"length": 6,
+				"table": "0301"
+			  }
+			]
+		  }
+		}
+	  },
+	  "CE": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 6,
+			"parts": [
+			  {
+				"name": "identifier",
+				"type": "ST",
+				"length": 0,
+				"mandatory": true
+			  },
+			  {
+				"name": "text",
+				"type": "ST",
+				"length": 0,
+				"mandatory": true
+			  },
+			  {
+				"name": "nameOfCodingSystem",
+				"type": "ID",
+				"length": 0,
+				"mandatory": true,
+				"table": "0396"
+			  },
+			  {
+				"name": "alternateIdentifier",
+				"type": "ST",
+				"length": 0,
+				"mandatory": true
+			  },
+			  {
+				"name": "alternateText",
+				"type": "ST",
+				"length": 0,
+				"mandatory": true
+			  },
+			  {
+				"name": "nameOfAlternateCodingSystem",
+				"type": "ID",
+				"length": 0,
+				"mandatory": true,
+				"table": "0396"
+			  }
+			]
+		  }
+		}
+	  },
+	  "MSH": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "hl7SegmentName",
+				"type": "ST",
+				"table": "0076",
+				"length": 3
+			  },
+			  {
+				"mandatory": true,
+				"name": "encodingCharacters",
+				"type": "ST",
+				"length": 4
+			  },
+			  {
+				"name": "sendingApplication",
+				"type": "HD",
+				"length": 180
+			  },
+			  {
+				"name": "sendingFacility",
+				"type": "HD",
+				"length": 180
+			  },
+			  {
+				"name": "receivingApplication",
+				"type": "HD",
+				"length": 180
+			  },
+			  {
+				"name": "receivingFacility",
+				"type": "HD",
+				"length": 180
+			  },
+			  {
+				"name": "DTOrTimeOfMessage",
+				"type": "DTM",
+				"repeats": true,
+				"length": 4
+			  },
+			  {
+				"name": "security",
+				"type": "ST",
+				"length": 40
+			  },
+			  {
+				"mandatory": true,
+				"name": "messageType",
+				"type": "MSG",
+				"length": 7
+			  },
+			  {
+				"mandatory": true,
+				"name": "messageControlId",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"mandatory": true,
+				"name": "processingId",
+				"type": "ProcessingType",
+				"length": 3
+			  },
+			  {
+				"mandatory": true,
+				"name": "versionId",
+				"type": "VersionId",
+				"length": 60
+			  },
+			  {
+				"name": "sequenceNumber",
+				"type": "NM",
+				"length": 15
+			  },
+			  {
+				"name": "continuationPointer",
+				"type": "ST",
+				"length": 180
+			  },
+			  {
+				"name": "acceptAcknowledgementType",
+				"type": "ID",
+				"table": "0155",
+				"length": 2
+			  },
+			  {
+				"name": "countryCode",
+				"type": "ID",
+				"table": "399",
+				"length": 3
+			  },
+			  {
+				"name": "characterSet",
+				"type": "ID",
+				"table": "0211",
+				"repeats": true,
+				"length": 16
+			  },
+			  {
+				"name": "principalLanguageOfMessage",
+				"type": "CWE",
+				"table": "0155",
+				"length": 250
+			  },
+			  {
+				"name": "alternateCharacterSetHandling",
+				"type": "ID",
+				"table": "0356",
+				"length": 20
+			  },
+			  {
+				"name": "messageProfileIdentifier",
+				"type": "EI",
+				"repeats": true,
+				"length": 427
+			  },
+			  {
+				"name": "sendingResponseOrganization",
+				"type": "XON",
+				"length": 567
+			  },
+			  {
+				"name": "receivingResponseOrganization",
+				"type": "XON",
+				"length": 567
+			  },
+			  {
+				"name": "sendingNetworkAddress",
+				"type": "HD",
+				"length": 227
+			  },
+			  {
+				"name": "receivingNetworkAddress",
+				"type": "HD",
+				"length": 227
+			  }
+			]
+		  }
+		}
+	  },
+	  "PID": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "hl7SegmentName",
+				"type": "ST",
+				"table": "0076",
+				"length": 3
+			  },
+			  {
+				"name": "SetId",
+				"type": "NM",
+				"length": 4
+			  },
+			  {
+				"name": "patientId",
+				"type": "CX",
+				"length": 20
+			  },
+			  {
+				"mandatory": true,
+				"name": "patientIdentifierList",
+				"type": "CX",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"mandatory": true,
+				"name": "alternatePatientId",
+				"type": "CX",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"mandatory": true,
+				"name": "patientName",
+				"type": "XPN",
+				"repeats": true,
+				"length": 180
+			  },
+			  {
+				"name": "mothersMaidenName",
+				"type": "XPN",
+				"repeats": true,
+				"length": 180
+			  },
+			  {
+				"name": "dateTimeOfBirth",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "administrativeSex",
+				"type": "IS",
+				"table": "0001",
+				"length": 1
+			  },
+			  {
+				"name": "patientAlias",
+				"type": "XPN",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"name": "race",
+				"type": "CWE",
+				"table": "0005",
+				"repeats": true,
+				"length": 705
+			  },
+			  {
+				"name": "patientAddress",
+				"type": "XAD",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"name": "countyCode",
+				"type": "IS",
+				"table": "0289",
+				"length": 4
+			  },
+			  {
+				"name": "phoneNumberHome",
+				"type": "XTN",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"name": "phoneNumberBusiness",
+				"type": "XTN",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"name": "primaryLanguage",
+				"type": "CWE",
+				"table": "0296",
+				"length": 705
+			  },
+			  {
+				"name": "maritalStatus",
+				"type": "CWE",
+				"table": "0002",
+				"length": 705
+			  },
+			  {
+				"name": "religion",
+				"type": "CWE",
+				"table": "0006",
+				"length": 705
+			  },
+			  {
+				"name": "patientAccountNumber",
+				"type": "CX",
+				"length": 250
+			  },
+			  {
+				"name": "socialSecurityNumber",
+				"type": "ST",
+				"length": 16
+			  },
+			  {
+				"name": "driversLicenseNumber",
+				"type": "DLN",
+				"length": 25
+			  },
+			  {
+				"name": "mothersIdentifier",
+				"type": "CX",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"name": "ethnicGroup",
+				"type": "CX",
+				"table": "0189",
+				"repeats": true,
+				"length": 1
+			  },
+			  {
+				"name": "birthPlace",
+				"type": "ST",
+				"length": 250
+			  },
+			  {
+				"name": "multipleBirthIndicator",
+				"type": "ID",
+				"table": "0136",
+				"length": 1
+			  },
+			  {
+				"name": "birthOrder",
+				"type": "uint16",
+				"length": 2
+			  },
+			  {
+				"name": "citizenship",
+				"type": "CWE",
+				"table": "0171",
+				"repeats": true,
+				"length": 705
+			  },
+			  {
+				"name": "veteransMilitaryStatus",
+				"type": "CWE",
+				"table": "0172",
+				"length": 705
+			  },
+			  {
+				"name": "nationality",
+				"type": "CWE",
+				"table": "0212",
+				"length": 705
+			  },
+			  {
+				"name": "patientDeathDTAndTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "patientDeathIndicator",
+				"type": "ID",
+				"table": "0136",
+				"length": 1
+			  },
+			  {
+				"name": "identityUnknownIndicator",
+				"type": "ID",
+				"table": "0136",
+				"length": 1
+			  },
+			  {
+				"name": "identityReliabilityCode",
+				"type": "IS",
+				"table": "0445",
+				"repeats": true,
+				"length": 20
+			  },
+			  {
+				"name": "LastUpdateDTM",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "lastUpdateFacility",
+				"type": "HD",
+				"length": 241
+			  },
+			  {
+				"name": "speciesCode",
+				"type": "CWE",
+				"table": "0446",
+				"length": 705
+			  },
+			  {
+				"name": "breedCode",
+				"type": "CWE",
+				"table": "0447",
+				"length": 705
+			  },
+			  {
+				"name": "strain",
+				"type": "ST",
+				"length": 705
+			  },
+			  {
+				"name": "productionClassCode",
+				"type": "CWE",
+				"table": "0429",
+				"repeats": true,
+				"length": 705
+			  },
+			  {
+				"name": "tribalCitizenship",
+				"type": "CWE",
+				"table": "0171",
+				"repeats": true,
+				"length": 705
+			  }
+			]
+		  }
+		}
+	  },
+	  "OBX": {
+		"separator": ".",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "hl7SegmentName",
+				"type": "ST",
+				"table": "0076",
+				"length": 3
+			  },
+			  {
+				"name": "SetId",
+				"type": "SI",
+				"length": 4
+			  },
+			  {
+				"name": "valueType",
+				"type": "ID",
+				"table": "0125",
+				"length": 3
+			  },
+			  {
+				"mandatory": true,
+				"name": "observationIdentifier",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "observationSubId",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "observationValue",
+				"type": "Varies",
+				"repeats": true,
+				"length": 180
+			  },
+			  {
+				"name": "units",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "referenceRange",
+				"type": "ST",
+				"length": 60
+			  },
+			  {
+				"name": "abnormalFlags",
+				"type": "IS",
+				"table": "0078",
+				"repeats": true,
+				"length": 5
+			  },
+			  {
+				"name": "probability",
+				"type": "NM",
+				"repeats": true,
+				"length": 250
+			  },
+			  {
+				"name": "natureOfAbnormalTest",
+				"type": "ID",
+				"table": "0080",
+				"repeats": true,
+				"length": 2
+			  },
+			  {
+				"mandatory": true,
+				"name": "observationResultStatus",
+				"type": "ID",
+				"table": "0085",
+				"length": 1
+			  },
+			  {
+				"name": "effectiveDataOfReferenceRange",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "userDefinedAccessChecks",
+				"type": "ST",
+				"length": 20
+			  },
+			  {
+				"name": "dateAndTimeOfObservation",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "producersId",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "reponsibleObserver",
+				"type": "XCN",
+				"repeats": true,
+				"length": 3220
+			  },
+			  {
+				"name": "observationMethod",
+				"type": "CWE",
+				"repeats": true,
+				"length": 705
+			  },
+			  {
+				"name": "equipmentInstanceIdentifier",
+				"type": "EI",
+				"length": 427
+			  },
+			  {
+				"name": "moodCode",
+				"type": "CNE",
+				"table": "0725",
+				"length": 705
+			  },
+			  {
+				"name": "performingOrganizationName",
+				"type": "XON",
+				"length": 570
+			  },
+			  {
+				"name": "performingOrganizationAddress",
+				"type": "XAD",
+				"length": 2915
+			  },
+			  {
+				"name": "performingOrganizationMedicalDirector",
+				"type": "XCN",
+				"length": 3220
+			  }
+			]
+		  }
+		}
+	  },
+	  "PV1": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 52,
+			"length": 1200,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "hl7SegmentName",
+				"type": "ST",
+				"table": "0076",
+				"length": 3
+			  },
+			  {
+				"name": "setIdPv1",
+				"type": "SI",
+				"length": 4
+			  },
+			  {
+				"name": "patientClass",
+				"type": "IS",
+				"length": 1,
+				"mandatory": true,
+				"table": "0004"
+			  },
+			  {
+				"name": "assignedPatientLocation",
+				"type": "PL",
+				"length": 80
+			  },
+			  {
+				"name": "admissionType",
+				"type": "IS",
+				"length": 2,
+				"table": "0007"
+			  },
+			  {
+				"name": "preadmitNumber",
+				"type": "CX",
+				"length": 250
+			  },
+			  {
+				"name": "priorPatientLocation",
+				"type": "PL",
+				"length": 80
+			  },
+			  {
+				"name": "attendingDoctor",
+				"type": "XCN",
+				"length": 250,
+				"repeats": true,
+				"table": "0010"
+			  },
+			  {
+				"name": "referringDoctor",
+				"type": "XCN",
+				"length": 250,
+				"repeats": true,
+				"table": "0010"
+			  },
+			  {
+				"name": "consultingDoctor",
+				"type": "XCN",
+				"length": 250,
+				"mandatory": true,
+				"repeats": true,
+				"table": "0010"
+			  },
+			  {
+				"name": "hospitalService",
+				"type": "IS",
+				"length": 3,
+				"table": "0069"
+			  },
+			  {
+				"name": "temporaryLocation",
+				"type": "PL",
+				"length": 80
+			  },
+			  {
+				"name": "preadmitTestIndicator",
+				"type": "IS",
+				"length": 2,
+				"table": "0087"
+			  },
+			  {
+				"name": "reAdmissionIndicator",
+				"type": "IS",
+				"length": 2,
+				"table": "0092"
+			  },
+			  {
+				"name": "admitSource",
+				"type": "IS",
+				"length": 6,
+				"table": "0023"
+			  },
+			  {
+				"name": "ambulatoryStatus",
+				"type": "IS",
+				"length": 2,
+				"repeats": true,
+				"table": "0009"
+			  },
+			  {
+				"name": "vipIndicator",
+				"type": "IS",
+				"length": 2,
+				"table": "0099"
+			  },
+			  {
+				"name": "admittingDoctor",
+				"type": "XCN",
+				"length": 250,
+				"repeats": true,
+				"table": "0010"
+			  },
+			  {
+				"name": "patientType",
+				"type": "IS",
+				"length": 2,
+				"table": "0018"
+			  },
+			  {
+				"name": "visitNumber",
+				"type": "CX",
+				"length": 250
+			  },
+			  {
+				"name": "financialClass",
+				"type": "FC",
+				"length": 50,
+				"repeats": true
+			  },
+			  {
+				"name": "chargePriceIndicator",
+				"type": "IS",
+				"length": 2,
+				"table": "0032"
+			  },
+			  {
+				"name": "courtesyCode",
+				"type": "IS",
+				"length": 2,
+				"table": "0045"
+			  },
+			  {
+				"name": "creditRating",
+				"type": "IS",
+				"length": 2,
+				"table": "0046"
+			  },
+			  {
+				"name": "contractCode",
+				"type": "IS",
+				"length": 2,
+				"repeats": true,
+				"table": "0044"
+			  },
+			  {
+				"name": "contractEffectiveDate",
+				"type": "DT",
+				"length": 8
+			  },
+			  {
+				"name": "contractAmount",
+				"type": "NM",
+				"length": 12
+			  },
+			  {
+				"name": "contractPeriod",
+				"type": "NM",
+				"length": 3
+			  },
+			  {
+				"name": "interestCode",
+				"type": "IS",
+				"length": 2,
+				"table": "0073"
+			  },
+			  {
+				"name": "transferToBadDebtCode",
+				"type": "IS",
+				"length": 4,
+				"table": "0110"
+			  },
+			  {
+				"name": "transferToBadDebtDate",
+				"type": "DT",
+				"length": 8
+			  },
+			  {
+				"name": "badDebtAgencyCode",
+				"type": "IS",
+				"length": 10,
+				"table": "0021"
+			  },
+			  {
+				"name": "badDebtTransferAmount",
+				"type": "NM",
+				"length": 12,
+				"repeats": true
+			  },
+			  {
+				"name": "badDebtRecoveryAmount",
+				"type": "NM",
+				"length": 12,
+				"repeats": true
+			  },
+			  {
+				"name": "deleteAccountIndicator",
+				"type": "IS",
+				"length": 1,
+				"table": "0111"
+			  },
+			  {
+				"name": "deleteAccountDate",
+				"type": "DT",
+				"length": 8
+			  },
+			  {
+				"name": "dischargeDisposition",
+				"type": "IS",
+				"length": 3,
+				"table": "0112"
+			  },
+			  {
+				"name": "dischargedToLocation",
+				"type": "DLD",
+				"length": 47,
+				"table": "0114"
+			  },
+			  {
+				"name": "dietType",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "servicingFacility",
+				"type": "IS",
+				"length": 2,
+				"table": "0115"
+			  },
+			  {
+				"name": "bedStatus",
+				"type": "IS",
+				"length": 1,
+				"mandatory": true,
+				"table": "0116"
+			  },
+			  {
+				"name": "accountStatus",
+				"type": "IS",
+				"length": 2,
+				"table": "0117"
+			  },
+			  {
+				"name": "pendingLocation",
+				"type": "PL",
+				"length": 80
+			  },
+			  {
+				"name": "priorTemporaryLocation",
+				"type": "PL",
+				"length": 80
+			  },
+			  {
+				"name": "admitDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "dischargeDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "currentPatientBalance",
+				"type": "NM",
+				"length": 12
+			  },
+			  {
+				"name": "totalCharges",
+				"type": "NM",
+				"length": 12
+			  },
+			  {
+				"name": "totalAdjustments",
+				"type": "NM",
+				"length": 12
+			  },
+			  {
+				"name": "totalPayments",
+				"type": "NM",
+				"length": 12
+			  },
+			  {
+				"name": "alternateVisitId",
+				"type": "CX",
+				"length": 250,
+				"table": "0326"
+			  },
+			  {
+				"name": "visitIndicator",
+				"type": "IS",
+				"length": 1
+			  },
+			  {
+				"name": "otherHealthcareProvider",
+				"type": "XCN",
+				"length": 250,
+				"mandatory": true,
+				"repeats": true,
+				"table": "0010"
+			  }
+			]
+		  }
+		}
+	  },
+	  "OBR": {
+		"separator": ".",
+		"versions": {
+		  "2.6": {
+			"appliesTo": "equalOrGreater",
+			"totalFields": 50,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "hl7SegmentName",
+				"type": "ST",
+				"table": "0076",
+				"length": 3
+			  },
+			  {
+				"name": "setId",
+				"type": "SI",
+				"length": 4
+			  },
+			  {
+				"name": "placerOrderNumber",
+				"type": "EI",
+				"length": 427,
+				"mandatory": true
+			  },
+			  {
+				"name": "fillerOrderNumber",
+				"type": "EI",
+				"length": 427,
+				"mandatory": true
+			  },
+			  {
+				"name": "universalServiceIdentifier",
+				"type": "CWE",
+				"length": 705,
+				"mandatory": true
+			  },
+			  {
+				"name": "priority",
+				"type": "ID",
+				"length": 2,
+				"mandatory": true
+			  },
+			  {
+				"name": "requestedDateTime",
+				"type": "DTM",
+				"length": 24,
+				"mandatory": true
+			  },
+			  {
+				"name": "observationDateTime",
+				"type": "DTM",
+				"length": 24,
+				"mandatory": true
+			  },
+			  {
+				"name": "observationEndDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "collectionVolume",
+				"type": "CQ",
+				"length": 722
+			  },
+			  {
+				"name": "collectorIdentifier",
+				"type": "XCN",
+				"length": 3220,
+				"repeats": true
+			  },
+			  {
+				"name": "specimenActionCode",
+				"type": "ID",
+				"length": 1,
+				"table": "0065"
+			  },
+			  {
+				"name": "dangerCode",
+				"type": "CWE",
+				"length": 705
+			  },
+			  {
+				"name": "relevantClinicalInformation",
+				"type": "ST",
+				"length": 300
+			  },
+			  {
+				"name": "specimenReceivedDateTime",
+				"type": "DTM",
+				"length": 24,
+				"mandatory": true
+			  },
+			  {
+				"name": "specimenSource",
+				"type": "SPS",
+				"length": 300,
+				"mandatory": true
+			  },
+			  {
+				"name": "orderingProvider",
+				"type": "XCN",
+				"length": 3220,
+				"repeats": true
+			  },
+			  {
+				"name": "orderCallbackPhoneNumber",
+				"type": "XTN",
+				"length": 2743,
+				"repeats": true
+			  },
+			  {
+				"name": "placerField1",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "placerField2",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "fillerField1",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "fillerField2",
+				"type": "ST",
+				"length": 199
+			  },
+			  {
+				"name": "resultsRptStatusChngDateTime",
+				"type": "DTM",
+				"length": 24,
+				"mandatory": true
+			  },
+			  {
+				"name": "chargeToPractice",
+				"type": "MOC",
+				"length": 504
+			  },
+			  {
+				"name": "diagnosticServSectId",
+				"type": "ID",
+				"length": 10,
+				"table": "0074"
+			  },
+			  {
+				"name": "resultStatus",
+				"type": "ID",
+				"length": 1,
+				"mandatory": true,
+				"table": "0123"
+			  },
+			  {
+				"name": "parentResult",
+				"type": "PRL",
+				"length": 977
+			  },
+			  {
+				"name": "quantityTiming",
+				"type": "TQ",
+				"length": 705,
+				"mandatory": true,
+				"repeats": true
+			  },
+			  {
+				"name": "resultCopiesTo",
+				"type": "XCN",
+				"length": 3220,
+				"repeats": true
+			  },
+			  {
+				"name": "parent",
+				"type": "EIP",
+				"length": 855
+			  },
+			  {
+				"name": "transportationMode",
+				"type": "ID",
+				"length": 20,
+				"table": "0124"
+			  },
+			  {
+				"name": "reasonForStudy",
+				"type": "CWE",
+				"length": 705,
+				"repeats": true
+			  },
+			  {
+				"name": "principalResultInterpreter",
+				"type": "NDL",
+				"length": 831,
+				"mandatory": true,
+				"repeats": true
+			  },
+			  {
+				"name": "assistantResultInterpreter",
+				"type": "NDL",
+				"length": 831,
+				"mandatory": true,
+				"repeats": true
+			  },
+			  {
+				"name": "technician",
+				"type": "NDL",
+				"length": 831,
+				"mandatory": true,
+				"repeats": true
+			  },
+			  {
+				"name": "transcriptionist",
+				"type": "NDL",
+				"length": 831,
+				"mandatory": true,
+				"repeats": true
+			  },
+			  {
+				"name": "scheduledDateTime",
+				"type": "DTM",
+				"length": 24
+			  },
+			  {
+				"name": "numberOfSampleContainers",
+				"type": "NM",
+				"length": 16
+			  },
+			  {
+				"name": "transportLogisticsOfCollectedSample",
+				"type": "CWE",
+				"length": 705,
+				"repeats": true
+			  },
+			  {
+				"name": "collectorsComment",
+				"type": "CWE",
+				"length": 705,
+				"repeats": true
+			  },
+			  {
+				"name": "transportArrangementResponsibility",
+				"type": "CWE",
+				"length": 705,
+				"table": "0224"
+			  },
+			  {
+				"name": "transportArranged",
+				"type": "ID",
+				"length": 30,
+				"table": "0225"
+			  },
+			  {
+				"name": "escortRequired",
+				"type": "ID",
+				"length": 1
+			  },
+			  {
+				"name": "plannedPatientTransportComment",
+				"type": "CWE",
+				"length": 705,
+				"repeats": true
+			  },
+			  {
+				"name": "procedureCode",
+				"type": "CNE",
+				"length": 705,
+				"table": "0088"
+			  },
+			  {
+				"name": "procedureCodeModifier",
+				"type": "CNE",
+				"length": 705,
+				"repeats": true,
+				"table": "0340"
+			  },
+			  {
+				"name": "placerSupplementalServiceInformation",
+				"type": "CWE",
+				"length": 705,
+				"repeats": true,
+				"table": "0411"
+			  },
+			  {
+				"name": "fillerSupplementalServiceInformation",
+				"type": "CWE",
+				"length": 705,
+				"repeats": true,
+				"table": "0411"
+			  },
+			  {
+				"name": "medicallyNecessaryDuplicateProcedureReason",
+				"type": "CWE",
+				"length": 705,
+				"mandatory": true,
+				"table": "0476"
+			  },
+			  {
+				"name": "resultHandling",
+				"type": "IS",
+				"length": 2,
+				"table": "0507"
+			  },
+			  {
+				"name": "parentUniversalServiceIdentifier",
+				"type": "CWE",
+				"length": 705
+			  }
+			]
+		  }
+		}
+	  },
+	  "HL7": {
+		"separator": "\u000D",
+		"partId": "type",
+		"versions": {
+		  "2.3.1": {
+			"appliesTo": "equalOrGreater",
+			"length": -1,
+			"parts": [
+			  {
+				"mandatory": true,
+				"name": "msh",
+				"type": "MSH",
+				"length": -1
+			  },
+			  {
+				"mandatory": true,
+				"name": "pid",
+				"type": "PID",
+				"repeats": true,
+				"length": -1
+			  },
+			  {
+				"name": "obx",
+				"type": "OBX",
+				"repeats": true,
+				"length": -1
+			  },
+			  {
+				"name": "obr",
+				"type": "OBR",
+				"length": -1
+			  },
+			  {
+				"name": "pv1",
+				"type": "PV1",
+				"length": -1
+			  }
+			]
+		  }
+		}
+	  }
+	}
+  }
+  
