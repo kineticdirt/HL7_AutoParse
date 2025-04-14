@@ -118,8 +118,11 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
         ref_val = ref_versions.get(key)
         gen_val = gen_versions.get(key)
         if ref_val != gen_val:
-            diffs_found = True
-            log_func(f"  MISMATCH [{category}]: Attribute '{key}' differs. Ref='{ref_val}', Gen='{gen_val}'", "warning")
+            if key == 'length' and ref_val == -1:
+                log_func(f"  INFO [{category}]: Attribute '{key}' differs (Ref='{ref_val}', Gen='{gen_val}'). Ref length unspecified.", "debug")
+            else:
+                diffs_found = True
+                log_func(f"  MISMATCH [{category}]: Attribute '{key}' differs. Ref='{ref_val}', Gen='{gen_val}'", "warning")
 
     # Compare Parts
     ref_parts = ref_versions.get('parts', [])
@@ -141,11 +144,12 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
 
     for part in gen_parts:
         name = part.get('name')
-        if name:
+        if name and name != "_original_type": # *** Filter out internal tag ***
             if name in gen_parts_dict: log_func(f"  WARNING [{category}]: Duplicate field name '{name}' in generated parts.", "warning")
             gen_parts_dict[name] = part
             gen_names.add(name)
-        else: log_func(f"  MISMATCH [{category}]: Generated part missing 'name'. Part: {part}", "warning"); diffs_found = True
+        elif name != "_original_type": # Only warn if missing name and it's not the tag
+             log_func(f"  MISMATCH [{category}]: Generated part missing 'name'. Part: {part}", "warning"); diffs_found = True
 
     # Find missing/extra fields
     missing_fields = ref_names - gen_names
@@ -160,7 +164,7 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
 
     # Compare common fields
     for field_name in ref_names.intersection(gen_names):
-        if compare_field_part(ref_parts_dict[field_name], gen_parts_dict[field_name], def_name, def_type, field_name, status_queue):
+        if compare_field_part(ref_parts_dict[field_name], gen_parts_dict[field_name], def_name, def_type_label, field_name, status_queue):
             diffs_found = True
 
     return diffs_found
@@ -255,7 +259,8 @@ def compare_hl7_definitions(generated_filepath=GENERATED_FILE, reference_filepat
         log_func(f"  MISMATCH: Generated 'dataTypes' is not a dictionary (type: {type(gen_datatypes)}).", "error"); any_differences = True
     else:
         ref_dt_names = set(ref_datatypes.keys())
-        gen_dt_names = set(gen_datatypes.keys())
+        # Ignore internal tag when getting generated names
+        gen_dt_names = set(k for k in gen_datatypes.keys() if k != "_original_type")
 
         missing_defs = ref_dt_names - gen_dt_names
         extra_defs = gen_dt_names - ref_dt_names
@@ -264,19 +269,43 @@ def compare_hl7_definitions(generated_filepath=GENERATED_FILE, reference_filepat
             any_differences = True
             log_func(f"  MISMATCH: Missing DataType/Segment Definition(s): {', '.join(sorted(missing_defs))}", "warning")
         if extra_defs:
-            # Acceptable if generator finds more
-             log_func(f"  INFO: Extra DataType/Segment Definition(s) found: {', '.join(sorted(extra_defs))}", "info")
+             log_func(f"  INFO: Extra DataType/Segment Definition(s) found: {', '.join(sorted(extra_defs))}", "info") # Acceptable
 
         # Compare common definitions
         for def_name in ref_dt_names.intersection(gen_dt_names):
             ref_def_struct = ref_datatypes.get(def_name)
             gen_def_struct = gen_datatypes.get(def_name)
-            def_type = "Segment" if gen_def_struct.get('separator') == '.' else "DataType" # Infer type
 
+            # **** DETERMINE TYPE LABEL FOR LOGGING using _original_type tag ****
+            def_type_label = "Unknown" # Default
+            if isinstance(gen_def_struct, dict):
+                # Prioritize the injected tag from the generated data
+                original_type_tag = gen_def_struct.get("_original_type")
+                if original_type_tag == "DataTypes":
+                    def_type_label = "DataType" # Use correct label
+                elif original_type_tag == "Segments":
+                    def_type_label = "Segment"  # Use correct label
+                else:
+                    # Fallback heuristic if tag is missing (e.g., from cache)
+                    log_func(f"  DEBUG: Missing or invalid '_original_type' tag for {def_name}. Using heuristic for logging label.", "debug")
+                    if len(def_name) == 3 and def_name.isalnum(): # Guess based on name
+                         def_type_label = "Segment"
+                    else:
+                         def_type_label = "DataType" # Default fallback
+            else:
+                 log_func(f"  WARNING: Generated definition for {def_name} is not a dict. Cannot determine type label.", "warning")
+                 # Apply a default or skip if needed
+                 def_type_label = "Definition" # Generic fallback label
+
+
+            # --- Perform Comparison using the determined label ---
             if not isinstance(ref_def_struct, dict) or not isinstance(gen_def_struct, dict):
-                 log_func(f"  MISMATCH [{def_type} - {def_name}]: Definition structure is not a dict in ref or gen.", "error"); any_differences = True; continue
+                 # Use the determined def_type_label here
+                 log_func(f"  MISMATCH [{def_type_label} - {def_name}]: Definition structure is not a dict in ref or gen.", "error"); any_differences = True; continue
 
-            if compare_definition_structure(ref_def_struct, gen_def_struct, def_name, def_type, status_queue):
+            # Pass the determined def_type_label to the structure comparison function
+            # The comparison function itself also needs modification (see below)
+            if compare_definition_structure(ref_def_struct, gen_def_struct, def_name, def_type_label, status_queue):
                 any_differences = True
 
     # 4. Compare HL7 Segment Structure

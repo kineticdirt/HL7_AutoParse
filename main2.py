@@ -60,60 +60,118 @@ def configure_gemini():
         print("Gemini configured successfully."); return True
     except Exception as e: messagebox.showerror("Gemini Config Error", f"Failed to configure Gemini: {e}"); return False
 
-# analyze_html_with_gemini() UNCHANGED from previous version
-def analyze_html_with_gemini(html_content, definition_name, definition_type):
-    """Analyzes HTML source code with Gemini to extract definitions."""
+
+def analyze_table_html_with_gemini(html_content, definition_name):
+    """Analyzes Table HTML source code with Gemini."""
     global app
     if not GEMINI_MODEL:
         print("Error: Gemini model not configured.")
         return None
     if app and app.stop_event.is_set():
-        print(f"  Skip Gemini (HTML): Stop requested for {definition_name}.")
+        print(f"  Skip Gemini (Table HTML): Stop requested for {definition_name}.")
         return None
 
+    definition_type = "Table" # For logging and clarity
     print(f"  Analyzing {definition_type} '{definition_name}' HTML with Gemini...")
     max_retries = 3
-    retry_delay = 5 # Slightly longer delay might be needed for complex HTML
+    retry_delay = 5
 
-    prompt = "" # Initialize prompt
-
-    # --- *** CONSTRUCT PROMPT BASED ON DEFINITION TYPE *** ---
-    # Base instructions common to both/all types when analyzing HTML
-    common_instructions = f"""
-        Analyze the provided HTML source code for the HL7 {definition_type} definition page for '{definition_name}', version {HL7_VERSION}.
-        Focus on the main data table, likely marked with classes like 'mat-table', 'table-definition', or similar structured `<tr>` and `<td>` elements within the primary content area. Ignore extraneous HTML like headers, footers, scripts, and sidebars.
-        Extract the required information based on the {definition_type} type below.
-        Generate a JSON object strictly following the specified rules.
-        Return ONLY the raw JSON object for '{definition_name}' without any surrounding text or markdown formatting (` ```json ... ``` `).
-    """
-
-    if definition_type == 'Tables':
-        prompt = common_instructions + f"""
-        Specifically, find the table containing 'Value' and 'Description' (or 'Comment') columns.
+    # --- Prompt Construction for Tables ---
+    prompt = f"""
+        Analyze the provided HTML source code for the HL7 Table definition page for ID '{definition_name}', version {HL7_VERSION}.
+        Focus on the main data table, likely marked with classes like 'mat-table', 'table-definition', or similar structured `<tr>` and `<td>` elements within the primary content area (`<tbody>`). Ignore extraneous HTML like headers, footers, scripts, and sidebars.
+        Find the table containing 'Value' and 'Description' (or 'Comment') columns.
         Extract the 'Value' and 'Description' for each data row (`<tr>`) within the table body (`<tbody>`).
 
-        JSON Rules:
+        Generate a JSON object strictly following these rules:
         1.  The **top-level key MUST be the numeric table ID as a JSON string** (e.g., "{definition_name}").
         2.  The value associated with this key MUST be an **array** of objects.
         3.  Each object in the array represents one row and MUST contain only two keys:
-            *   `value`: The exact string from the 'Value' column cell (`<td>`).
-            *   `description`: The exact string from the 'Description'/'Comment' column cell (`<td>`).
-        4.  **Do NOT include** any other keys.
+            *   `value`: The exact string content from the 'Value' column cell (`<td>`).
+            *   `description`: The exact string content from the 'Description'/'Comment' column cell (`<td>`).
+        4.  **Do NOT include** any other keys. Ensure all rows found in the HTML table are included.
 
         Example structure for table "0001":
         {{
           "{definition_name}": [
-            {{ "value": "F", "description": "Female", "comment": "..." }},
-            {{ "value": "M", "description": "Male", "comment": "..." }},
+            {{ "value": "F", "description": "Female" }},
+            {{ "value": "M", "description": "Male" }}
+            {{ "value": "O", "description": "Other" }}
           ]
         }}
-        """
-    elif definition_type == 'DataTypes' or definition_type == 'Segments':
-        # Determine expected separator based on final user requirement
-        separator_value = "." # Always use period now
 
-        prompt = common_instructions + f"""
-        Specifically, find the table defining the structure (fields/components). Look for columns like 'FIELD', 'LENGTH', 'DATA TYPE', 'OPTIONALITY', 'REPEATABILITY', 'TABLE'.
+        Return ONLY the raw JSON object for table '{definition_name}' without any surrounding text or markdown formatting (` ```json ... ``` `).
+    """
+    # --- End Prompt Construction ---
+
+    for attempt in range(max_retries):
+        if app and app.stop_event.is_set():
+            print(f"  Skip Gemini {definition_type} HTML attempt {attempt+1}: Stop requested.")
+            return None
+        try:
+            print(f"  Attempt {attempt + 1} for {definition_name} {definition_type} HTML analysis...")
+            # Send HTML content as text
+            response = GEMINI_MODEL.generate_content(prompt + "\n\nHTML SOURCE:\n```html\n" + html_content + "\n```")
+
+            # Robust JSON cleaning
+            json_text = response.text.strip()
+            if json_text.startswith("```json"): json_text = json_text[7:]
+            elif json_text.startswith("```"): json_text = json_text[3:]
+            if json_text.endswith("```"): json_text = json_text[:-3]
+            json_text = json_text.strip()
+
+            # Attempt to parse
+            parsed_json = json.loads(json_text)
+            print(f"  Successfully parsed Gemini {definition_type} HTML response for {definition_name}.")
+            return parsed_json
+        except json.JSONDecodeError as e:
+            print(f"Error: Bad JSON from Gemini {definition_type} HTML analysis for '{definition_name}': {e}")
+            err_line, err_col = getattr(e, 'lineno', 'N/A'), getattr(e, 'colno', 'N/A')
+            print(f"  Error at line ~{err_line}, column ~{err_col}")
+            print(f"  Received Text: ```\n{response.text}\n```") # Log raw response
+            if attempt == max_retries - 1:
+                print(f"  Max retries reached for Gemini {definition_type} HTML analysis of {definition_name}.")
+                return None
+            print(f"  Retrying Gemini {definition_type} HTML analysis in {retry_delay}s...")
+            time.sleep(retry_delay)
+        except (google.api_core.exceptions.ResourceExhausted, google.api_core.exceptions.InternalServerError, google.api_core.exceptions.ServiceUnavailable, google.api_core.exceptions.GatewayTimeout) as e:
+             print(f"Warn: Gemini API error attempt {attempt+1} for {definition_type} HTML analysis of '{definition_name}': {e}")
+             if attempt < max_retries-1:
+                  print(f"  Retrying in {retry_delay}s...")
+                  time.sleep(retry_delay)
+             else:
+                  print(f"Error: Max Gemini retries reached for {definition_type} HTML analysis of '{definition_name}'."); return None
+        except Exception as e:
+            print(f"Error: Unexpected Gemini {definition_type} HTML analysis error attempt {attempt+1} for '{definition_name}': {e}")
+            print(traceback.format_exc())
+            return None
+
+    return None # Should only be reached if all retries fail
+
+def analyze_datatype_html_with_gemini(html_content, definition_name):
+    """Analyzes DataType HTML source code with Gemini."""
+    global app
+    if not GEMINI_MODEL:
+        print("Error: Gemini model not configured.")
+        return None
+    if app and app.stop_event.is_set():
+        print(f"  Skip Gemini (DataType HTML): Stop requested for {definition_name}.")
+        return None
+
+    definition_type = "DataType" # For logging and clarity
+    print(f"  Analyzing {definition_type} '{definition_name}' HTML with Gemini...")
+    max_retries = 3
+    retry_delay = 5
+
+    # --- Prompt Construction for DataTypes ---
+    separator_value = "." # Always use period now
+
+    prompt = f"""
+        Analyze the provided HTML source code for the HL7 {definition_type} definition page for '{definition_name}', version {HL7_VERSION}.
+        Focus on the main data table defining the components, likely marked with classes like 'mat-table', 'table-definition', or similar structured `<tr>` and `<td>` elements within the primary content area (`<tbody>`). Look for columns like 'FIELD', 'LENGTH', 'DATA TYPE', 'OPTIONALITY', 'REPEATABILITY', 'TABLE'. Ignore extraneous HTML like headers, footers, scripts, and sidebars.
+        Extract the required information based on the rules below.
+        Generate a JSON object strictly following the specified rules.
+        Return ONLY the raw JSON object for '{definition_name}' without any surrounding text or markdown formatting (` ```json ... ``` `).
 
         JSON Rules:
         1.  Create a **top-level key which is the {definition_type} name** ('{definition_name}').
@@ -123,36 +181,33 @@ def analyze_html_with_gemini(html_content, definition_name, definition_type):
             *   `versions`: An object containing a key for the HL7 version ('{HL7_VERSION}').
         4.  The '{HL7_VERSION}' object MUST contain:
             *   `appliesTo`: Set to 'equalOrGreater'.
-            *   `totalFields`: The total count of rows extracted for the 'parts' array.
+            *   `totalFields`: The total count of component rows extracted for the 'parts' array.
             *   `length`: The overall length shown near the top of the page content if available (e.g., text like "LENGTH 831"), otherwise -1. Find this value outside the main table if necessary.
             *   `parts`: An **array** of objects, one for each data row (`<tr>`) in the definition table body (`<tbody>`).
-        5.  Each object within the 'parts' array represents a field/component and MUST contain:
-            *   `name`: The field description (from 'FIELD' or similar column) converted to camelCase (e.g., 'setIdPv1', 'financialClassCode'). Remove any prefix like 'PV1-1'. If the description is just '...', use a generic name like 'fieldN' where N is the row number.
-            *   `type`: The exact string from the 'DATA TYPE' column cell (`<td>`).
+        5.  Each object within the 'parts' array represents a component and MUST contain:
+            *   `name`: The field description (from 'FIELD' or similar column) converted to camelCase (e.g., 'setIdPv1', 'financialClassCode'). Remove any prefix like 'NDL-1'. If the description is just '...', use a generic name like 'fieldN' where N is the row number.
+            *   `type`: The exact string content from the 'DATA TYPE' column cell (`<td>`).
             *   `length`: The numeric value from the 'LENGTH' column cell (`<td>`). If it's '*' or empty/blank, use -1. Otherwise, use the integer value.
         6.  **Conditionally include** these keys in the part object ONLY if applicable, based on the corresponding column cell (`<td>`) content:
-            *   `mandatory`: Set to `true` ONLY if the 'OPTIONALITY' column is 'R', 'C', or 'B'. Omit otherwise.
-            *   `repeats`: Set to `true` ONLY if the 'REPEATABILITY' column does not contain a '-' character. Omit otherwise.
-            *   `table`: Set to the **numeric table ID as a JSON string** ONLY if the 'TABLE' column contains a numeric value (e.g., "0004", "0125"). Omit if the cell is empty.
+            *   `mandatory`: Set to `true` ONLY if the 'OPTIONALITY' column cell text is 'R', 'C', or 'B'. Omit otherwise (e.g., for 'O', 'W', 'X', '-').
+            *   `repeats`: Set to `true` ONLY if the 'REPEATABILITY' column cell text does NOT contain a '-' character (i.e., it has 'Y', '∞', or a number). Omit otherwise.
+            *   `table`: Set to the **numeric table ID as a JSON string** ONLY if the 'TABLE' column cell contains a numeric value (e.g., "0004", "0125"). Omit if the cell is empty or non-numeric. Ensure you get the value from the correct row.
 
-        Example structure for a Segment ('PV1') component part:
-        {{ "name": "patientClass", "type": "IS", "length": 1, "mandatory": true, "table": "0004" }}
+        Example structure for a DataType ('CX') component part:
+        {{ "name": "assigningAuthority", "type": "HD", "length": 227, "table": "0363" }}
         """
-    else:
-        print(f"Error: Unknown definition_type '{definition_type}' for Gemini HTML prompt.")
-        return None
-    # --- END PROMPT CONSTRUCTION ---
+    # --- End Prompt Construction ---
 
     for attempt in range(max_retries):
         if app and app.stop_event.is_set():
-            print(f"  Skip Gemini HTML attempt {attempt+1}: Stop requested.")
+            print(f"  Skip Gemini {definition_type} HTML attempt {attempt+1}: Stop requested.")
             return None
         try:
-            print(f"  Attempt {attempt + 1} for {definition_name} HTML analysis...")
+            print(f"  Attempt {attempt + 1} for {definition_name} {definition_type} HTML analysis...")
             # Send HTML content as text
             response = GEMINI_MODEL.generate_content(prompt + "\n\nHTML SOURCE:\n```html\n" + html_content + "\n```")
 
-            # Robust JSON cleaning (same as before)
+            # Robust JSON cleaning
             json_text = response.text.strip()
             if json_text.startswith("```json"): json_text = json_text[7:]
             elif json_text.startswith("```"): json_text = json_text[3:]
@@ -161,32 +216,140 @@ def analyze_html_with_gemini(html_content, definition_name, definition_type):
 
             # Attempt to parse
             parsed_json = json.loads(json_text)
-            print(f"  Successfully parsed Gemini HTML response for {definition_name}.")
+            print(f"  Successfully parsed Gemini {definition_type} HTML response for {definition_name}.")
             return parsed_json
         except json.JSONDecodeError as e:
-            print(f"Error: Bad JSON from Gemini HTML analysis for '{definition_name}': {e}")
+            print(f"Error: Bad JSON from Gemini {definition_type} HTML analysis for '{definition_name}': {e}")
             err_line, err_col = getattr(e, 'lineno', 'N/A'), getattr(e, 'colno', 'N/A')
             print(f"  Error at line ~{err_line}, column ~{err_col}")
             print(f"  Received Text: ```\n{response.text}\n```") # Log raw response
             if attempt == max_retries - 1:
-                print(f"  Max retries reached for Gemini HTML analysis of {definition_name}.")
+                print(f"  Max retries reached for Gemini {definition_type} HTML analysis of {definition_name}.")
                 return None
-            print(f"  Retrying Gemini HTML analysis in {retry_delay}s...")
+            print(f"  Retrying Gemini {definition_type} HTML analysis in {retry_delay}s...")
             time.sleep(retry_delay)
         except (google.api_core.exceptions.ResourceExhausted, google.api_core.exceptions.InternalServerError, google.api_core.exceptions.ServiceUnavailable, google.api_core.exceptions.GatewayTimeout) as e:
-             print(f"Warn: Gemini API error attempt {attempt+1} for HTML analysis of '{definition_name}': {e}")
+             print(f"Warn: Gemini API error attempt {attempt+1} for {definition_type} HTML analysis of '{definition_name}': {e}")
              if attempt < max_retries-1:
                   print(f"  Retrying in {retry_delay}s...")
                   time.sleep(retry_delay)
              else:
-                  print(f"Error: Max Gemini retries reached for HTML analysis of '{definition_name}'."); return None
+                  print(f"Error: Max Gemini retries reached for {definition_type} HTML analysis of '{definition_name}'."); return None
         except Exception as e:
-            print(f"Error: Unexpected Gemini HTML analysis error attempt {attempt+1} for '{definition_name}': {e}")
+            print(f"Error: Unexpected Gemini {definition_type} HTML analysis error attempt {attempt+1} for '{definition_name}': {e}")
             print(traceback.format_exc())
-            # Decide if retry makes sense for unexpected errors, or just fail
-            return None # Fail on unexpected errors for now
+            return None
 
     return None # Should only be reached if all retries fail
+
+def analyze_segment_html_with_gemini(html_content, definition_name):
+    """Analyzes Segment HTML source code with Gemini."""
+    global app
+    if not GEMINI_MODEL:
+        print("Error: Gemini model not configured.")
+        return None
+    if app and app.stop_event.is_set():
+        print(f"  Skip Gemini (Segment HTML): Stop requested for {definition_name}.")
+        return None
+
+    definition_type = "Segment" # For logging and clarity
+    print(f"  Analyzing {definition_type} '{definition_name}' HTML with Gemini...")
+    max_retries = 3
+    retry_delay = 5
+
+    # --- Prompt Construction for Segments ---
+    separator_value = "." # Always use period now
+
+    prompt = f"""
+        Analyze the provided HTML source code for the HL7 {definition_type} definition page for '{definition_name}', version {HL7_VERSION}.
+        Focus on the main data table defining the fields, likely marked with classes like 'mat-table', 'table-definition', or similar structured `<tr>` and `<td>` elements within the primary content area (`<tbody>`). Look for columns like 'FIELD', 'LENGTH', 'DATA TYPE', 'OPTIONALITY', 'REPEATABILITY', 'TABLE'. Ignore extraneous HTML like headers, footers, scripts, and sidebars.
+        Extract the required information based on the rules below.
+        Generate a JSON object strictly following the specified rules.
+        Return ONLY the raw JSON object for '{definition_name}' without any surrounding text or markdown formatting (` ```json ... ``` `).
+
+        JSON Rules:
+        1.  Create a **top-level key which is the {definition_type} name** ('{definition_name}').
+        2.  The value associated with this key MUST be an object.
+        3.  This object MUST contain:
+            *   `separator`: MUST be set to "{separator_value}"
+            *   `versions`: An object containing a key for the HL7 version ('{HL7_VERSION}').
+        4.  The '{HL7_VERSION}' object MUST contain:
+            *   `appliesTo`: Set to 'equalOrGreater'.
+            *   `totalFields`: The total count of field rows extracted for the 'parts' array. Remember to include the standard 'hl7SegmentName' part if it's not explicitly listed first in the HTML table.
+            *   `length`: The overall length shown near the top of the page content if available (e.g., text like "LENGTH 1200"), otherwise -1. Find this value outside the main table if necessary.
+            *   `parts`: An **array** of objects, one for each data row (`<tr>`) in the definition table body (`<tbody>`). If the table doesn't start with 'hl7SegmentName' or 'Set ID', prepend this standard part: {{"name": "hl7SegmentName", "type": "ST", "length": 3, "mandatory": true, "table": "0076"}}.
+        5.  Each object within the 'parts' array represents a field and MUST contain:
+            *   `name`: The field description (from 'FIELD' or similar column) converted to camelCase (e.g., 'setIdPv1', 'patientClass'). Remove any prefix like 'PV1-1'. If the description is just '...', use a generic name like 'fieldN' where N is the row number.
+            *   `type`: The exact string content from the 'DATA TYPE' column cell (`<td>`).
+            *   `length`: The numeric value from the 'LENGTH' column cell (`<td>`). If it's '*' or empty/blank, use -1. Otherwise, use the integer value.
+        6.  **Conditionally include** these keys in the part object ONLY if applicable, based on the corresponding column cell (`<td>`) content:
+            *   `mandatory`: Set to `true` ONLY if the 'OPTIONALITY' column cell text is 'R', 'C', or 'B'. Omit otherwise (e.g., for 'O', 'W', 'X', '-').
+            *   `repeats`: Set to `true` ONLY if the 'REPEATABILITY' column cell text does NOT contain a '-' character (i.e., it has 'Y', '∞', or a number). Omit otherwise.
+            *   `table`: Set to the **numeric table ID as a JSON string** ONLY if the 'TABLE' column cell contains a numeric value (e.g., "0004", "0125"). Omit if the cell is empty or non-numeric. Ensure you get the value from the correct row.
+
+        Example structure for a Segment ('PV1') component part:
+        {{ "name": "patientClass", "type": "IS", "length": 1, "mandatory": true, "table": "0004" }}
+        """
+    # --- End Prompt Construction ---
+
+    for attempt in range(max_retries):
+        if app and app.stop_event.is_set():
+            print(f"  Skip Gemini {definition_type} HTML attempt {attempt+1}: Stop requested.")
+            return None
+        try:
+            print(f"  Attempt {attempt + 1} for {definition_name} {definition_type} HTML analysis...")
+            # Send HTML content as text
+            response = GEMINI_MODEL.generate_content(prompt + "\n\nHTML SOURCE:\n```html\n" + html_content + "\n```")
+
+            # Robust JSON cleaning
+            json_text = response.text.strip()
+            if json_text.startswith("```json"): json_text = json_text[7:]
+            elif json_text.startswith("```"): json_text = json_text[3:]
+            if json_text.endswith("```"): json_text = json_text[:-3]
+            json_text = json_text.strip()
+
+            # Attempt to parse
+            parsed_json = json.loads(json_text)
+            print(f"  Successfully parsed Gemini {definition_type} HTML response for {definition_name}.")
+            # --- Post-processing for Segments: Ensure standard part exists ---
+            if parsed_json and definition_name in parsed_json:
+                segment_data = parsed_json[definition_name]
+                if "versions" in segment_data and HL7_VERSION in segment_data["versions"]:
+                    version_data = segment_data["versions"][HL7_VERSION]
+                    if "parts" in version_data:
+                         parts_list = version_data["parts"]
+                         hl7_seg_part = {"mandatory": True, "name": "hl7SegmentName", "type": "ST", "table": "0076", "length": 3}
+                         if not parts_list or parts_list[0].get("name") != "hl7SegmentName":
+                              parts_list.insert(0, hl7_seg_part)
+                              version_data["totalFields"] = len(parts_list) # Update totalFields count
+                              print(f"  Prepended standard hl7SegmentName part for {definition_name} (AI Result)")
+            # --- End Post-processing ---
+            return parsed_json
+        except json.JSONDecodeError as e:
+            print(f"Error: Bad JSON from Gemini {definition_type} HTML analysis for '{definition_name}': {e}")
+            err_line, err_col = getattr(e, 'lineno', 'N/A'), getattr(e, 'colno', 'N/A')
+            print(f"  Error at line ~{err_line}, column ~{err_col}")
+            print(f"  Received Text: ```\n{response.text}\n```") # Log raw response
+            if attempt == max_retries - 1:
+                print(f"  Max retries reached for Gemini {definition_type} HTML analysis of {definition_name}.")
+                return None
+            print(f"  Retrying Gemini {definition_type} HTML analysis in {retry_delay}s...")
+            time.sleep(retry_delay)
+        except (google.api_core.exceptions.ResourceExhausted, google.api_core.exceptions.InternalServerError, google.api_core.exceptions.ServiceUnavailable, google.api_core.exceptions.GatewayTimeout) as e:
+             print(f"Warn: Gemini API error attempt {attempt+1} for {definition_type} HTML analysis of '{definition_name}': {e}")
+             if attempt < max_retries-1:
+                  print(f"  Retrying in {retry_delay}s...")
+                  time.sleep(retry_delay)
+             else:
+                  print(f"Error: Max Gemini retries reached for {definition_type} HTML analysis of '{definition_name}'."); return None
+        except Exception as e:
+            print(f"Error: Unexpected Gemini {definition_type} HTML analysis error attempt {attempt+1} for '{definition_name}': {e}")
+            print(traceback.format_exc())
+            return None
+
+    return None # Should only be reached if all retries fail
+
+# analyze_html_with_gemini() UNCHANGED from previous version
 
 # --- Selenium Functions ---
 # setup_driver() UNCHANGED from previous version (includes headless)
@@ -554,8 +717,17 @@ def process_definition_page(driver, definition_type, definition_name, status_que
 
             if stop_event.is_set(): raise KeyboardInterrupt("Stop requested before AI HTML analysis.")
 
-            # --- AI Analysis of HTML ---
-            ai_data = analyze_html_with_gemini(html_content, definition_name, definition_type)
+            # --- AI Analysis of HTML - Call specific function ---
+            if definition_type == "Tables":
+                ai_data = analyze_table_html_with_gemini(html_content, definition_name)
+            elif definition_type == "DataTypes":
+                ai_data = analyze_datatype_html_with_gemini(html_content, definition_name)
+            elif definition_type == "Segments":
+                ai_data = analyze_segment_html_with_gemini(html_content, definition_name)
+            else:
+                status_queue.put(('error', f"    Unknown definition type '{definition_type}' for AI HTML fallback."))
+                ai_data = None
+            # --- End Specific Call ---
 
             if ai_data:
                 final_data_source = "AI Fallback (HTML)"
@@ -1329,3 +1501,131 @@ if __name__ == "__main__":
         except tk.TclError:
             pass # Ignore errors if window already destroyed
         sys.exit(0) # Ensure clean exit
+        
+
+		# def analyze_html_with_gemini(html_content, definition_name, definition_type):
+#     """Analyzes HTML source code with Gemini to extract definitions."""
+#     global app
+#     if not GEMINI_MODEL:
+#         print("Error: Gemini model not configured.")
+#         return None
+#     if app and app.stop_event.is_set():
+#         print(f"  Skip Gemini (HTML): Stop requested for {definition_name}.")
+#         return None
+
+#     print(f"  Analyzing {definition_type} '{definition_name}' HTML with Gemini...")
+#     max_retries = 3
+#     retry_delay = 5 # Slightly longer delay might be needed for complex HTML
+
+#     prompt = "" # Initialize prompt
+
+#     # --- *** CONSTRUCT PROMPT BASED ON DEFINITION TYPE *** ---
+#     # Base instructions common to both/all types when analyzing HTML
+#     common_instructions = f"""
+#         Analyze the provided HTML source code for the HL7 {definition_type} definition page for '{definition_name}', version {HL7_VERSION}.
+#         Focus on the main data table, likely marked with classes like 'mat-table', 'table-definition', or similar structured `<tr>` and `<td>` elements within the primary content area. Ignore extraneous HTML like headers, footers, scripts, and sidebars.
+#         Extract the required information based on the {definition_type} type below.
+#         Generate a JSON object strictly following the specified rules.
+#         Return ONLY the raw JSON object for '{definition_name}' without any surrounding text or markdown formatting (` ```json ... ``` `).
+#     """
+
+#     if definition_type == 'Tables':
+#         prompt = common_instructions + f"""
+#         Specifically, find the table containing 'Value' and 'Description' (or 'Comment') columns.
+#         Extract the 'Value' and 'Description' for each data row (`<tr>`) within the table body (`<tbody>`).
+
+#         JSON Rules:
+#         1.  The **top-level key MUST be the numeric table ID as a JSON string** (e.g., "{definition_name}").
+#         2.  The value associated with this key MUST be an **array** of objects.
+#         3.  Each object in the array represents one row and MUST contain only two keys:
+#             *   `value`: The exact string from the 'Value' column cell (`<td>`).
+#             *   `description`: The exact string from the 'Description'/'Comment' column cell (`<td>`).
+#         4.  **Do NOT include** any other keys.
+
+#         Example structure for table "0001":
+#         {{
+#           "{definition_name}": [
+#             {{ "value": "F", "description": "Female", "comment": "..." }},
+#             {{ "value": "M", "description": "Male", "comment": "..." }},
+#           ]
+#         }}
+#         """
+#     elif definition_type == 'DataTypes' or definition_type == 'Segments':
+#         # Determine expected separator based on final user requirement
+#         separator_value = "." # Always use period now
+
+#         prompt = common_instructions + f"""
+#         Specifically, find the table defining the structure (fields/components). Look for columns like 'FIELD', 'LENGTH', 'DATA TYPE', 'OPTIONALITY', 'REPEATABILITY', 'TABLE'.
+
+#         JSON Rules:
+#         1.  Create a **top-level key which is the {definition_type} name** ('{definition_name}').
+#         2.  The value associated with this key MUST be an object.
+#         3.  This object MUST contain:
+#             *   `separator`: MUST be set to "{separator_value}"
+#             *   `versions`: An object containing a key for the HL7 version ('{HL7_VERSION}').
+#         4.  The '{HL7_VERSION}' object MUST contain:
+#             *   `appliesTo`: Set to 'equalOrGreater'.
+#             *   `totalFields`: The total count of rows extracted for the 'parts' array.
+#             *   `length`: The overall length shown near the top of the page content if available (e.g., text like "LENGTH 831"), otherwise -1. Find this value outside the main table if necessary.
+#             *   `parts`: An **array** of objects, one for each data row (`<tr>`) in the definition table body (`<tbody>`).
+#         5.  Each object within the 'parts' array represents a field/component and MUST contain:
+#             *   `name`: The field description (from 'FIELD' or similar column) converted to camelCase (e.g., 'setIdPv1', 'financialClassCode'). Remove any prefix like 'PV1-1'. If the description is just '...', use a generic name like 'fieldN' where N is the row number.
+#             *   `type`: The exact string from the 'DATA TYPE' column cell (`<td>`).
+#             *   `length`: The numeric value from the 'LENGTH' column cell (`<td>`). If it's '*' or empty/blank, use -1. Otherwise, use the integer value.
+#         6.  **Conditionally include** these keys in the part object ONLY if applicable, based on the corresponding column cell (`<td>`) content:
+#             *   `mandatory`: Set to `true` ONLY if the 'OPTIONALITY' column is 'R', 'C', or 'B'. Omit otherwise.
+#             *   `repeats`: Set to `true` ONLY if the 'REPEATABILITY' column does not contain a '-' character. Omit otherwise.
+#             *   `table`: Set to the **numeric table ID as a JSON string** ONLY if the 'TABLE' column contains a numeric value (e.g., "0004", "0125"). Omit if the cell is empty.
+
+#         Example structure for a Segment ('PV1') component part:
+#         {{ "name": "patientClass", "type": "IS", "length": 1, "mandatory": true, "table": "0004" }}
+#         """
+#     else:
+#         print(f"Error: Unknown definition_type '{definition_type}' for Gemini HTML prompt.")
+#         return None
+#     # --- END PROMPT CONSTRUCTION ---
+
+#     for attempt in range(max_retries):
+#         if app and app.stop_event.is_set():
+#             print(f"  Skip Gemini HTML attempt {attempt+1}: Stop requested.")
+#             return None
+#         try:
+#             print(f"  Attempt {attempt + 1} for {definition_name} HTML analysis...")
+#             # Send HTML content as text
+#             response = GEMINI_MODEL.generate_content(prompt + "\n\nHTML SOURCE:\n```html\n" + html_content + "\n```")
+
+#             # Robust JSON cleaning (same as before)
+#             json_text = response.text.strip()
+#             if json_text.startswith("```json"): json_text = json_text[7:]
+#             elif json_text.startswith("```"): json_text = json_text[3:]
+#             if json_text.endswith("```"): json_text = json_text[:-3]
+#             json_text = json_text.strip()
+
+#             # Attempt to parse
+#             parsed_json = json.loads(json_text)
+#             print(f"  Successfully parsed Gemini HTML response for {definition_name}.")
+#             return parsed_json
+#         except json.JSONDecodeError as e:
+#             print(f"Error: Bad JSON from Gemini HTML analysis for '{definition_name}': {e}")
+#             err_line, err_col = getattr(e, 'lineno', 'N/A'), getattr(e, 'colno', 'N/A')
+#             print(f"  Error at line ~{err_line}, column ~{err_col}")
+#             print(f"  Received Text: ```\n{response.text}\n```") # Log raw response
+#             if attempt == max_retries - 1:
+#                 print(f"  Max retries reached for Gemini HTML analysis of {definition_name}.")
+#                 return None
+#             print(f"  Retrying Gemini HTML analysis in {retry_delay}s...")
+#             time.sleep(retry_delay)
+#         except (google.api_core.exceptions.ResourceExhausted, google.api_core.exceptions.InternalServerError, google.api_core.exceptions.ServiceUnavailable, google.api_core.exceptions.GatewayTimeout) as e:
+#              print(f"Warn: Gemini API error attempt {attempt+1} for HTML analysis of '{definition_name}': {e}")
+#              if attempt < max_retries-1:
+#                   print(f"  Retrying in {retry_delay}s...")
+#                   time.sleep(retry_delay)
+#              else:
+#                   print(f"Error: Max Gemini retries reached for HTML analysis of '{definition_name}'."); return None
+#         except Exception as e:
+#             print(f"Error: Unexpected Gemini HTML analysis error attempt {attempt+1} for '{definition_name}': {e}")
+#             print(traceback.format_exc())
+#             # Decide if retry makes sense for unexpected errors, or just fail
+#             return None # Fail on unexpected errors for now
+
+#     return None # Should only be reached if all retries fail
