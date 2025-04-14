@@ -31,6 +31,8 @@ use your own API_KEY (copy and paste into ```api_key.txt```)
 The code should take some time to run. Delete the generated JSON before running once more.
 Test JSON (to compare against the generated JSON) should be placed in the comparison files folder (an example has been placed in the HL7_test_2.6.json)
 
+Ctrl + C ends the program midway (CLI), or clicking 'STOP'
+
 ## File Structure & Key Components
 
 ```text
