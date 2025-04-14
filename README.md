@@ -32,21 +32,26 @@ The code should take some time to run. Delete the generated JSON before running 
 Test JSON (to compare against the generated JSON) should be placed in the comparison files folder (an example has been placed in the HL7_test_2.6.json)
 
 ## File Structure & Key Components
-├── pycache/ # Python bytecode cache (auto-generated)
+
+```text
+.
+├── __pycache__/            # Python bytecode cache (auto-generated)
 ├── comparison_files/
-│ └── HL7_TEST_2.6.json # Reference/Ground Truth JSON file for comparison
-├── fallback_html/ # Directory to store HTML source for AI fallback debugging
+│   └── HL7_TEST_2.6.json   # Reference/Ground Truth JSON file for comparison
+├── fallback_html/          # Directory to store HTML source for AI fallback debugging
 ├── screenshots_gui_hybrid/ # (Potentially legacy) Directory for screenshots
-├── api_key.txt # File containing the Google AI (Gemini) API Key (MUST BE CREATED)
-├── hl7_comparison.py # Python script for comparing generated JSON vs reference JSON
+├── api_key.txt             # File containing the Google AI (Gemini) API Key (MUST BE CREATED)
+├── hl7_comparison.py       # Python script for comparing generated JSON vs reference JSON
 ├── hl7_definitions_v2.6.json # Main output file containing scraped/parsed definitions
-├── main.py # Older version? (Assumes main4.py is current)
-├── main2.py # Older version?
-├── main3.py # Older version?
-├── main4.py # <<< CURRENT MAIN APPLICATION SCRIPT >>>
+├── main.py                 # Older version? (Assumes main4.py is current)
+├── main2.py                # Older version?
+├── main3.py                # Older version?
+├── main4.py                # <<< CURRENT MAIN APPLICATION SCRIPT >>>
 ├── pip_install_libraries.txt # (Alternative name) List of dependencies
-├── README.md # This file
-└── requirements.txt # Standard file listing Python dependencies
+├── README.md               # This file
+└── requirements.txt        # Standard file listing Python dependencies
+```
+## Files
 
 *   **`main4.py`**:
     *   The main executable script for the application.

@@ -94,16 +94,20 @@ def compare_field_part(ref_part, gen_part, def_name, def_type, field_name, statu
 
     return diffs_found
 
-def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_queue):
+# **** MODIFIED SIGNATURE to accept def_type_label ****
+# **** Note: Parameter name changed to def_type_label for consistency with calling function ****
+def compare_definition_structure(ref_def, gen_def, def_name, def_type_label, status_queue):
     """Compares the structure of a DataType or Segment definition."""
     diffs_found = False
     log_func = lambda msg, level="info": status_queue.put((level, msg))
-    category = f"{def_type} - {def_name}"
+    # **** USE THE PASSED LABEL for logging category ****
+    category = f"{def_type_label} - {def_name}"
 
-    # Compare separator
+    # Compare separator (Optional: depends if separator difference matters)
     ref_sep = ref_def.get('separator')
     gen_sep = gen_def.get('separator')
-    if ref_sep != gen_sep:
+    # Ignore separator diff if gen has the _original_type tag (meaning sep was standardized)
+    if ref_sep != gen_sep and "_original_type" not in gen_def:
         diffs_found = True
         log_func(f"  MISMATCH [{category}]: Separator differs. Ref='{ref_sep}', Gen='{gen_sep}'", "warning")
 
@@ -114,26 +118,29 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
     if not ref_versions: log_func(f"  INFO [{category}]: Reference definition has no version '{HL7_VERSION}'. Skipping version comparison.", "debug"); return diffs_found
     if not gen_versions: log_func(f"  MISMATCH [{category}]: Generated definition missing version '{HL7_VERSION}'.", "warning"); return True
 
-    for key in ['appliesTo', 'length']: # Compare basic version attributes
+    # Compare basic version attributes like 'length', 'appliesTo'
+    for key in ['appliesTo', 'length']:
         ref_val = ref_versions.get(key)
         gen_val = gen_versions.get(key)
         if ref_val != gen_val:
-            if key == 'length' and ref_val == -1:
-                log_func(f"  INFO [{category}]: Attribute '{key}' differs (Ref='{ref_val}', Gen='{gen_val}'). Ref length unspecified.", "debug")
-            else:
-                diffs_found = True
-                log_func(f"  MISMATCH [{category}]: Attribute '{key}' differs. Ref='{ref_val}', Gen='{gen_val}'", "warning")
+             # Add leniency for length if ref is -1 (often means unspecified)
+             if key == 'length' and ref_val == -1:
+                  log_func(f"  INFO [{category}]: Attribute '{key}' differs (Ref='{ref_val}', Gen='{gen_val}'). Ref length unspecified.", "debug")
+             else:
+                 diffs_found = True
+                 log_func(f"  MISMATCH [{category}]: Attribute '{key}' differs. Ref='{ref_val}', Gen='{gen_val}'", "warning")
+
 
     # Compare Parts
     ref_parts = ref_versions.get('parts', [])
     gen_parts = gen_versions.get('parts', [])
 
-    # Create dicts for easy lookup by field name
     ref_parts_dict = {}
     gen_parts_dict = {}
     ref_names = set()
     gen_names = set()
 
+    # Process reference parts (no need to filter tag here)
     for part in ref_parts:
         name = part.get('name')
         if name:
@@ -142,6 +149,7 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
             ref_names.add(name)
         else: log_func(f"  WARNING [{category}]: Reference part missing 'name'. Part: {part}", "warning"); diffs_found = True
 
+    # Process generated parts, excluding the internal tag from comparison list
     for part in gen_parts:
         name = part.get('name')
         if name and name != "_original_type": # *** Filter out internal tag ***
@@ -151,7 +159,7 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
         elif name != "_original_type": # Only warn if missing name and it's not the tag
              log_func(f"  MISMATCH [{category}]: Generated part missing 'name'. Part: {part}", "warning"); diffs_found = True
 
-    # Find missing/extra fields
+    # Find missing/extra fields (tag is already excluded from gen_names)
     missing_fields = ref_names - gen_names
     extra_fields = gen_names - ref_names
 
@@ -164,6 +172,8 @@ def compare_definition_structure(ref_def, gen_def, def_name, def_type, status_qu
 
     # Compare common fields
     for field_name in ref_names.intersection(gen_names):
+        # **** CORRECTED VARIABLE NAME IN CALL ****
+        # Pass the 'def_type_label' received by this function down to the field comparison
         if compare_field_part(ref_parts_dict[field_name], gen_parts_dict[field_name], def_name, def_type_label, field_name, status_queue):
             diffs_found = True
 
